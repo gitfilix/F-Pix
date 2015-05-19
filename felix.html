@@ -1,0 +1,265 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>SPA with json tst</title>
+</head>
+<body>
+<style>
+	#gallery{
+	background: #444;	
+	font-family: sans-serif;
+	color: aquamarine;
+	}
+	
+	#gallery img{
+		width: 400px;
+		height: auto;
+	}
+	#gallery li{
+		list-style: none;
+	}
+	
+	#navigation{
+	margin: 0 auto;
+	width: 700px;
+	background: #DDD;
+	color: white;
+	font-family: sans-serif;
+	}
+	
+</style>
+<script src="js/jquery-1.11.js"></script>
+<script src="js/template7.js"></script>
+	
+ 
+<div id="container" style="background: #66A; padding: 1em;">
+	
+</div>
+
+	<script>
+	TestTpl7 ={
+		people: [
+			{
+				firstName: 'Fiilix Swadrowski',
+				lastName: 'Adamski'
+			},
+			{
+				firstName: 'Handelson',
+				lastName: 'Naminski'
+			},
+			]
+	}
+	</script>
+	
+	
+	
+<script id="template" type="text/template7">
+	<div style: "padding:2em; background: #A44;">
+		here is a list of people
+		<ul>
+			{{#each people}}
+			<li>{{firstName}} {{lastName}}</li>
+			{{/each}}
+		</ul>
+		
+	</div>
+</script>	
+	
+	
+<script id="templateDetail" type="application/flxguruscript">
+	<div id="gallery">
+		<nav id="nav"></nav>
+		<div>{{renderPartialView}}</div>
+	</div>
+</script>
+
+<!--starter template (no data)-->
+<script id="templateHome" type="application/mirzaguruscript">
+	<div id="home" style="background:url() left top no-repeat;background-size:cover;height:100%; background:#CCC;"> 
+		<nav id="nav"></nav>
+		<div style="position:absolute;top:50%;">{{welcomeSpruch}}</div>
+	</div>
+</script>
+
+<!--	navigation script for GalleryCollection-->
+<script id="templateNav" type="application/flxguruscript">
+	<div id="navigation" style: "background=#A66;">
+		<nav>
+			<ul>
+				{{renderNavView}}
+			</ul>
+		</nav>
+	</div>	
+</script>
+	
+
+<script>
+//	TestTpl7 ={
+//		people: [
+//			{
+//				firstName: 'Fiilix Swadrowski',
+//				lastName: 'Adamski'
+//			},
+//			{
+//				firstName: 'Handelson',
+//				lastName: 'Naminski'
+//			},
+//			]
+//	}
+	
+	
+	// this is our model
+	GalleryCollection = [
+		{
+			albumtitel: 'Black and White Pictures by Michael Kenna',
+			albumstate: 'public',
+			creator: 'felix',
+			createdate: '2015-12-12',
+			images: [
+				{
+					imgtitel: 'img-title 1',
+					imgpath: 'pix/kenna-1.jpg',
+					imgCaption: 'A Gate to the ocean'
+				},
+				{
+					imgtitel: 'img-title 2',
+					imgpath: 'pix/kenna-2.jpg',
+					imgCaption: 'A Gate to the ocean'
+				},
+				{
+					imgtitel: 'img-title 3',
+					imgpath: 'pix/kenna-4.jpg',
+					imgCaption: 'A Gate to the ocean'
+				},
+				{
+					imgtitel: 'img-title 4',
+					imgpath: 'pix/kenna-4.jpg',
+					imgCaption: 'Clowd Towers'
+				}
+			]
+		},
+		{
+			albumtitel: 'Later Works by M. Kenna',
+			albumstate: 'public',
+			creator: 'mirza',
+			createdate: '2015-02-12',
+			images: [
+				{
+					imgtitel: 'img-title 7',
+					imgpath: 'pix/kenna-6.jpg',
+					imgCaption: 'Clowd Towers'
+				},
+				{
+					imgtitel: 'img-title 7',
+					imgpath: 'pix/kenna-7.jpg',
+					imgCaption: 'Clowd Towers from distance'
+				}
+			]
+		},
+		{
+			albumtitel: 'Feets walking arround',
+			albumstate: 'public',
+			creator: 'feetischischt',
+			createdate: '2015-12-12',
+			images: [
+				{
+					imgtitel: 'feets 1',
+					imgpath: 'pix/feets/feets1.jpg',
+					imgCaption: 'walking on concrete'
+				},
+				{
+					imgtitel: 'feets 2',
+					imgpath: 'pix/feets/feets2.jpg',
+					imgCaption: 'walking on concrete 2'
+				},
+				{
+					imgtitel: 'feets 3',
+					imgpath: 'pix/feets/feets3.jpg',
+					imgCaption: 'walking on concrete'
+				},
+				{
+					imgtitel: 'feets 4',
+					imgpath: 'pix/feets/feets4.jpg',
+					imgCaption: 'walking on concrete'
+				},
+				{
+					imgtitel: 'feets 5',
+					imgpath: 'pix/feets/feets5.jpg',
+					imgCaption: 'walking on concrete'
+				},
+				{
+					imgtitel: 'feets 6',
+					imgpath: 'pix/feets/feets6.jpg',
+					imgCaption: 'walking on concrete'
+				},
+				{
+					imgtitel: 'feets 7',
+					imgpath: 'pix/feets/feets7.jpg',
+					imgCaption: 'walking on concrete'
+				},
+				{
+					imgtitel: 'feets 8',
+					imgpath: 'pix/feets/feets8.jpg',
+					imgCaption: 'walking on concrete'
+				},
+				{
+					imgtitel: 'feets 9',
+					imgpath: 'pix/feets/feets9.jpg',
+					imgCaption: 'walking on concrete'
+				}
+			]
+		}
+	]
+
+
+// this is the model of the clicked album (initially 0)
+var actviewmodel = GalleryCollection[0]
+
+// function Show Album
+function showAlbum(idx){
+	actviewmodel = GalleryCollection[idx]	
+	// render album function call 
+	renderAlbum(idx,'templateDetail'); // hardcoded templateDetail
+}
+
+
+function renderAlbum(idx,template){
+	actAlbum = actviewmodel
+	newHTML = $('#'+template).html()
+	var newUL = $('<ul>')
+	$.each(actAlbum.images,function(i){
+		var newLI = $('<li>').html('<img src="'+actAlbum.images[i].imgpath+'" />'+actAlbum.images[i].imgtitel).appendTo(newUL)	
+	})
+
+	renderedView = newHTML.replace('{{renderPartialView}}',$(newUL).prop('outerHTML'))	
+
+	$('#container').html(renderedView)
+}
+
+
+
+// helper function for inital navigation
+function createNav(){
+	var newUL = $('<ul>')
+	$.each(GalleryCollection,function(i){
+		var newLI = $('<li>').html('<a href="javascript:showAlbum('+i+');void(0);">'+GalleryCollection[i].albumtitel+'</a>').appendTo(newUL)	
+	})	
+//	newUL.appendTo('#container');
+	$('#container').html(newUL);
+}
+
+// initialize
+createNav()
+//
+//function renderNav(){
+//	$.each(GalleryCollection = )
+//	
+//}
+
+
+
+</script>
+
+</body>
+</html>

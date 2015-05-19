@@ -1,0 +1,282 @@
+
+/*----------   mq's ------------*/
+/*too small device */
+@media (min-width: 250px) {
+	#title-gal:after{
+		content: "much too small, kolleg!";
+	}
+	
+	
+	.menubar h1{
+		font-size: 1rem;
+		line-height: 1rem;
+		color: red;
+		margin-bottom: 0;
+	}
+	
+	#title-gal{
+		width: 30%;	
+	}
+	
+	#ContainerContent{
+		display: block;
+	}
+	
+	#ContainerFooter{
+		visibility: hidden;
+	}
+	
+}
+
+
+/* Phone Portrait----------------------------- */
+@media  (min-width: 320px) and (orientation:  portrait ) {
+	
+	#title-gal:after{
+		content: "phone portrait"
+	}
+
+	
+	#ContainerContent{
+		display: block;
+	}
+	
+	
+	#title-gal{
+		width: 50%;	
+	}
+	
+	.menubar h1{
+		color: aqua;
+		font-size: 1rem;
+		line-height: 1rem;
+		margin-bottom:0;
+		marging-top:5px;
+	}
+	
+	
+	
+	#ContainerFooter{
+		visibility: visible;
+	}
+	
+	#footer{
+		display:none;	
+	}
+	
+	
+	.teaser{
+		display: none;
+	}
+	
+	.theadalbum{
+		font-size: 1.2rem;
+
+	}
+	
+	.listsinglealbum{
+		font-size: 1rem;
+	}
+	
+	.listsinglealbum img{
+		max-width: 35px;
+		height: auto;
+	}
+}
+
+
+/*------------------------ Phone landscape */
+@media (min-width: 320px) and (orientation:  landscape ) {
+	
+	#title-gal:after{
+		content: "phone landscape";
+	}
+	.menubar h1{
+		color: #F3C113;
+	font-size: 1rem;
+		line-height: 1rem;
+	}
+	
+	#title-gal{
+		width: 50%;	
+	}
+	
+		
+	#ContainerFooter{
+		visibility: hidden;
+	}
+	#footer{
+		display:block;	
+	}
+	
+}
+
+
+
+/*-----------------------Tablet Portrait ----*/
+@media (min-width: 768px) and (orientation: portrait)  {
+	/*test*/
+	.menubar h1{
+		color: #F7F653;
+		font-size: 1rem;
+		line-height: 1rem;
+	}
+	#title-gal:after{
+		content: "tablet portrait works";
+	}
+	
+	#title-gal{
+		width: 50%;	
+	}
+	
+	
+	#ContainerFooter{
+		visibility: visible;
+	}
+	#footer{
+		display:block;	
+	}
+}
+
+/*-----------------------Tablet landscape ----*/
+@media (min-width : 768px) and (orientation : landscape) {
+	/*test*/
+	.menubar h1{
+		background:#6A3435;
+		color: greenyellow;
+		font-size: 1rem;
+		line-height: 1rem;
+	}
+	#title-gal:after{
+		content: "tablet landscape";
+	}
+	
+	
+	#ContainerContent{
+		display: block;
+	}
+
+	.teaser{
+		display: none;
+	}
+	
+
+	#ContainerFooter{
+		visibility: visible;
+	}
+	#footer{
+		display:block;	
+	}
+	
+	.teaser{
+		display: none;
+	}
+	
+	.theadalbum{
+		font-size: 1.8rem;
+	}
+	
+	.listsinglealbum{
+		font-size: 1.6rem;
+		font-weight: 200;
+	}
+	
+	.listsinglealbum img{
+		max-width: 50px;
+		height: auto;
+	}
+}
+
+
+
+/*-----------------------Desktop screen ----*/
+@media (min-width: 1050px) {
+	
+	#ContainerContent{
+		display: block;
+	}
+	
+	
+	/*test*/
+	.menubar h1{
+		color:crimson;
+		font-size: 1rem;
+		line-height: 1rem;
+	}
+	
+	#title-gal:after{
+		content: "desktop"
+	}
+	/* display teasers on the right side */
+	
+	.teaser{
+		display: block;
+
+	}
+	/* display footer on the bottom */
+	
+	#ContainerFooter{
+		visibility: visible;
+	}
+	#footer{
+		display:block;	
+	}
+	
+	
+	.listsinglealbum{
+		font-size: 2.3rem;
+	}
+	
+	.listsinglealbum img{
+		max-width: 90px;
+		height: auto;
+	}
+
+}
+
+
+
+
+/*too small device fallback for nerds only*/
+/*
+
+@media (max-width: 300px){
+	body{
+		background: #000;
+		color:#AFF;
+	}
+	
+	#ContainerContent:after{
+		margin-top: 2em;
+		padding: 0.5em;
+		font-size: 1rem;
+		
+		border: 1px solid #A22;
+		content: "such a tiny device! This isnt ready to view big pictures...";
+	}
+	
+	.container{
+		display: none;
+		background: #007aff !important;
+	}
+
+	.menubar{
+		background: #007aff !important;
+	}
+
+	.menubar h1{
+		color: #F33 ;
+	}
+	
+	#ContainerContent{
+		background: #F33;
+	}
+	
+	
+	#footer{
+		display: none;
+	}
+
+}
+*/
+

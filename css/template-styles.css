@@ -1,0 +1,159 @@
+/*css mq flx edits and styles*/
+
+
+*{
+	box-sizing:border-box;
+}
+
+html, body {
+	height: 100%;
+	font-size:100.01%;
+	line-height:normal;
+	overflow:hidden;
+/*	background: #E2E2E2;*/
+}
+
+
+#ContainerWrapper{
+	height: 100%;
+	background: #3F3;
+	overflow:hidden;
+	
+}
+
+/*top menu bar with title and buttons*/
+#ContainerMenuBar{
+	position: absolute;
+	top: 0;
+	height:70px;
+	width: 100%;
+	background: #222;
+	color:#AEE;
+	z-index:50;
+}
+
+
+
+/*Navigation left*/
+#ContainerNav{
+	width: 300px;
+	background: #A44;
+	position: absolute;
+	top:70px;
+	left: 0;
+	height: 500px;
+	z-index: 50;
+	visibility: hidden;
+	transition: all 0.4s ease-out;
+}
+
+#navWrapper{
+	visibility: hidden;
+	width: 300px;
+	background: #FFF;
+	overflow-y: auto;
+	border: 2px solid #3F3;
+	transition: all 0.4s ease-out;
+}
+
+
+/* nav right TT*/
+#ContainerThemeToggler{
+	visibility: hidden;
+	z-index: 10;
+	position: absolute;
+	top:70px;
+	right: 0;
+	background: #222;
+	height: 500px;
+	width: 300px;
+}
+
+#ttwrapper{
+	position: absolute;
+	background: #a33;
+	width: 300px;
+	margin-top: -300px;
+	opacity: 0.6;
+	transition: all 0.4s ease-out;
+}
+
+/* content container*/
+/**/
+#ContainerContent{
+	
+	position:relative;
+	padding-top:70px;
+	height: 100%;
+	width: 100%;
+	padding-bottom:70px;
+	transform:translate(0,0,0);
+	transform:translate3d(0,0,0);
+	transition: all 0.4s ease-out;
+	/*border: 1px solid #CA66E0;*/
+	/*overflow-y: scroll;*/
+	-webkit-overflow-scrolling: touch;
+	overflow:auto;
+}
+
+/*inner content wrapper*/
+#appWrapper{
+	position:relative;
+	background: #99D1E3;
+	/*border: 1px solid #3F2;*/
+	color: azure;
+	width:100%;
+	height:100%; 
+}
+
+#someinnerwrapper{
+	background:#356FAD;
+	height:100%;
+	padding-left:10px;
+	
+	}
+
+/*--------- default view  -------------*/
+
+/*-------------- footer ------------*/
+
+#ContainerFooter{
+	position: fixed;
+	height:70px;
+	bottom: 0;
+	width: 100%;
+}
+
+#footer{
+	width: 100%;
+	padding-top: 1em;
+	padding-bottom: 1em;
+	border-top:  2px solid #101010;
+	background: #222;
+	color: #999;
+	text-align: left;
+	font-size: 0.8rem;
+}
+
+.footer img{
+	margin-left: 3em;
+	text-align: right;
+	max-width:60px; 
+	height:auto;
+}
+
+.adress{
+	padding-left:  1em;
+	border-left: 1px solid #777;
+}
+
+.footer a{
+	text-decoration: none;
+	color: #bbb;
+	letter-spacing: 1px;
+	padding-bottom: 1px;
+	border-bottom: 0px solid #222;
+	transition: all 0.3s ease-out;
+}
+
+
