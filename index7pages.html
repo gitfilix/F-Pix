@@ -31,113 +31,115 @@
 		// initial active gallery index
 		var actAlbumIdx = 0
 		var albums = {}
+		var teasers ={}
 		// -------------------MODEL---------------------//
 		// 1. page-Structure pageModel
-		var pages = {
-			seiten : [
-				// this is a page object pages[0]
-				{
-					pageTitel: 'Felix Gallery', // pages[0].pageTitel
-					titelNav: 'Home', // pages[0].titelNav
-					text: 'a visual Compendium', // pages[0].text
-					template: 'home', // pages[0].template (will load id="home" script-view),
-					backgroundImage: 'pix/bgstart_city1.jpg', // pages[0].backgroundImage
-					app: ''
-				},
-				// this is a page object pages[1]
-				{
-					pageTitel: 'ich bin eine Inhalts-Seite', // pages[1].pageTitel
-					titelNav: 'Inhalt', // pages[1].titelNav
-					text: 'Er hörte leise Schritte hinter sich. Das bedeutete nichts Gutes. Wer würde ihm schon folgen, spät in der Nacht und dazu noch in dieser engen Gasse mitten im übel beleumundeten Hafenviertel? Gerade jetzt, wo er das Ding seines Lebens gedreht hatte und mit der Beute verschwinden wollte! Hatte einer seiner zahllosen Kollegen dieselbe Idee gehabt, ihn beobachtet und abgewartet, um ihn nun um die Früchte seiner Arbeit zu erleichtern?', // pages[1].text
-					template: 'TextTwoCol', // pages[1].template (will load id="default" script-view)
-					backgroundImage: 'pix/flugi_01.jpg', // pages[1].backgroundImage
-					app: '',
-					content: [
-						{
-							title1:'Big Title 1 inhalt',
-							lead1: 'lead 1 um was geht es ?',
-							text1: 'text1: dazu noch in dieser engen Gasse mitten im übel beleumundeten Hafenviertel? Er hörte leise Schritte hinter sich. Das bedeutete nichts Gutes. Wer würde ihm schon folgen, spät in der Nacht und dazu noch in dieser engen Gasse mitten im übel beleumundeten Hafenviertel? Gerade jetzt, wo er das Ding seines Lebens gedreht hatte und mit der Beute verschwinden wollte! Hatte einer seiner zahllosen Kollegen dieselbe Idee gehabt, ihn beobachtet und abgewartet, um ihn nun um die Früchte seiner Arbeit zu erleich',
-							title2: 'second title inhalt ',
-							lead2: 'and this is the second lead',
-							text2: 'Mein Name ist Mirza und ich fahre gerne nach Indien. <br /> and some more text to fill the empty space to give some impressions.. '
-						}
-					]
-				},
-				// this is a page object pages[2]
-				{
-					pageTitel: 'ich bin eine Inhalts-Seite 2', // pages[2].pageTitel
-					titelNav: 'mein nerviger Freund Mirza', // pages[2].titelNav
-					text: 'Mein Name ist Mirza und ich fahre gerne nach Indien. <br />Er hörte leise Schritte hinter sich. Das bedeutete nichts Gutes. Wer würde ihm schon folgen, spät in der Nacht und dazu noch in dieser engen Gasse mitten im übel beleumundeten Hafenviertel? Gerade jetzt, wo er das Ding seines Lebens gedreht hatte und mit der Beute verschwinden wollte! Hatte einer seiner zahllosen Kollegen dieselbe Idee gehabt, ihn beobachtet und abgewartet, um ihn nun um die Früchte seiner Arbeit zu erleichtern?', // pages[2].text
-					template: 'default', // pages[2].template (will load id="default" script-view)
-					backgroundImage: 'pix/kenna-7.jpg', // pages[2].backgroundImage
-					app: '',
-					content: [
-						{
-							title1:'Big Title Mirza',
-							lead1: 'lead 1 um was geht es - um mirza',
-							text1: 'text1: keine ahnung um was es geht in diesem text- aber er wird angezeigt ',
-							title2: 'second title mirza',
-							lead2: 'and this is the second lead- still no answer but mirza',
-							text2: 'Mein Name ist Mirza und ich fahre gerne nach Indien. <br /> and some more text to'
-						}
-					]
-				},
-				// this is a page object pages[3]
-				// the overview and detail view are within the same page (clicking an album will load a separate view for the detail, but not change to a new page)
-				{
-					pageTitel: 'ich bin die Gallerie-Applikation', // pages[3].pageTitel
-					titelNav: 'Albums', // pages[3].titelNav
-					text: '', // pages[3].text
-					template: 'galleryApp', // pages[3].template (will load id="galleryApp" script-view)
-					backgroundImage: 'pix/feets/feets8.jpg',
-					app: 'galleryOverviewApp' // partial view id app
-				},
-				{
-					pageTitel: 'unter ferner liefen', // pages[4].pageTitel
-					titelNav: 'Tech Stack', // pages[4].titelNav
-					text: "Yep, that's a Singleton. Once you create an object literal in JavaScript you've reserved a little piece of memory and no other object will ever be just like that one. Now, depending on the scope you might have only created a local variable but if that user is sitting outside a function then it's globally available to anyone who wants to fiddle with it. I guess the most famous Singleton probably looks like this: $. To put it another way, ever notice how you can use jQuery anywhere in your app after you've included it on the page...? Boom! Singleton! ", // pages[4].text
-					template: 'default', // pages[4].template (will load id="galleryApp" script-view)
-					backgroundImage: 'pix/feets/feets8.jpg',
-					app: '',
-					content: [
-						{
-							title1:'Big Title Tech',
-							lead1: 'lead 1 to title tech',
-							text1: 'about tech texts - what the hell is a singleton? <br />reserved a little piece of memory and no other object will ever be just like that one. Now, depending on the scope you might have only created a local variable but if that user is sitting outside a function then it is globally available to anyone who wants to fiddle with it. I guess the most famous Singleton probably looks like this',
-							title2: 'second title techie stuff - a Singleton ',
-							lead2: 'and this is the second lead of tech nerding stuff ',
-							text2: "Mein Name ist Nördi - und ich fahre gerne nach Indien. <br /> and some more text to Yep, that's a Singleton. Once you create an object literal in JavaScript you've reserved a little piece of memory and no other object will ever be just like that one. Now, depending on the scope you might have only created a local variable but if that user is sitting outside a function then it's globally available to anyone who wants to fiddle with it. I guess the most famous Singleton probably looks like this: To put it another way, ever notice how you can use jQuery anywhere in your app after you've included it on the page...? Boom! Singleton!"
-						}
-					]
-				},
-				{
-					pageTitel: 'Upload', // pages[4].pageTitel
-					titelNav: 'Upload', // pages[4].titelNav
-					text: "", // pages[4].text
-					template: 'uploaderApp', // pages[4].template (will load id="galleryApp" script-view)
-					backgroundImage: '',
-					app: 'upload' // partial view id app
-				},
-				{
-					pageTitel: 'Ich bin ein neues TEmplate BG Prominent', // pages[2].pageTitel
-					titelNav: 'neues Template', // pages[2].titelNav
-					text: 'Mein Name ist Mirza und ich fahre gerne nach Indien. <br />Er hörte leise Schritte hinter sich. Das bedeutete nichts Gutes. Wer würde ihm schon folgen, spät in der Nacht und dazu noch in dieser engen Gasse mitten im übel beleumundeten Hafenviertel? Gerade jetzt, wo er das Ding seines Lebens gedreht hatte und mit der Beute verschwinden wollte! Hatte einer seiner zahllosen Kollegen dieselbe Idee gehabt, ihn beobachtet und abgewartet, um ihn nun um die Früchte seiner Arbeit zu erleichtern?', // pages[2].text
-					template: 'BgProminent', // pages[2].template (will load id="default" script-view)
-					backgroundImage: 'pix/kenna-1.jpg', // pages[2].backgroundImage
-					app: '',
-					content: [
-						{
-							title1:'very Big Title here',
-							lead1: 'lead 1 um was geht es - um ein neues Template',
-							text1: 'text1: keine ahnung um was es geht in diesem text- aber er wird angezeigt ',
-							title2: 'second title mirza',
-							lead2: 'and this is the second lead- still no answer but mirza',
-							text2: 'Mein Name ist Mirza und ich fahre gerne nach Indien. <br /> and some more text to'
-						}
-					]
-				},
-			]
-		}
+		var pages = {}
+//		var pages = {
+//			seiten : [
+//				// this is a page object pages[0]
+//				{
+//					pageTitel: 'Felix Gallery', // pages[0].pageTitel
+//					titelNav: 'Home', // pages[0].titelNav
+//					text: 'a visual Compendium', // pages[0].text
+//					template: 'home', // pages[0].template (will load id="home" script-view),
+//					backgroundImage: 'pix/bgstart_city1.jpg', // pages[0].backgroundImage
+//					app: ''
+//				},
+//				// this is a page object pages[1]
+//				{
+//					pageTitel: 'ich bin eine Inhalts-Seite', // pages[1].pageTitel
+//					titelNav: 'Inhalt', // pages[1].titelNav
+//					text: 'Er hörte leise Schritte hinter sich. Das bedeutete nichts Gutes. Wer würde ihm schon folgen, spät in der Nacht und dazu noch in dieser engen Gasse mitten im übel beleumundeten Hafenviertel? Gerade jetzt, wo er das Ding seines Lebens gedreht hatte und mit der Beute verschwinden wollte! Hatte einer seiner zahllosen Kollegen dieselbe Idee gehabt, ihn beobachtet und abgewartet, um ihn nun um die Früchte seiner Arbeit zu erleichtern?', // pages[1].text
+//					template: 'TextTwoCol', // pages[1].template (will load id="default" script-view)
+//					backgroundImage: 'pix/flugi_01.jpg', // pages[1].backgroundImage
+//					app: '',
+//					content: [
+//						{
+//							title1:'Big Title 1 inhalt',
+//							lead1: 'lead 1 um was geht es ?',
+//							text1: 'text1: dazu noch in dieser engen Gasse mitten im übel beleumundeten Hafenviertel? Er hörte leise Schritte hinter sich. Das bedeutete nichts Gutes. Wer würde ihm schon folgen, spät in der Nacht und dazu noch in dieser engen Gasse mitten im übel beleumundeten Hafenviertel? Gerade jetzt, wo er das Ding seines Lebens gedreht hatte und mit der Beute verschwinden wollte! Hatte einer seiner zahllosen Kollegen dieselbe Idee gehabt, ihn beobachtet und abgewartet, um ihn nun um die Früchte seiner Arbeit zu erleich',
+//							title2: 'second title inhalt ',
+//							lead2: 'and this is the second lead',
+//							text2: 'Mein Name ist Mirza und ich fahre gerne nach Indien. <br /> and some more text to fill the empty space to give some impressions.. '
+//						}
+//					]
+//				},
+//				// this is a page object pages[2]
+//				{
+//					pageTitel: 'ich bin eine Inhalts-Seite 2', // pages[2].pageTitel
+//					titelNav: 'mein nerviger Freund Mirza', // pages[2].titelNav
+//					text: 'Mein Name ist Mirza und ich fahre gerne nach Indien. <br />Er hörte leise Schritte hinter sich. Das bedeutete nichts Gutes. Wer würde ihm schon folgen, spät in der Nacht und dazu noch in dieser engen Gasse mitten im übel beleumundeten Hafenviertel? Gerade jetzt, wo er das Ding seines Lebens gedreht hatte und mit der Beute verschwinden wollte! Hatte einer seiner zahllosen Kollegen dieselbe Idee gehabt, ihn beobachtet und abgewartet, um ihn nun um die Früchte seiner Arbeit zu erleichtern?', // pages[2].text
+//					template: 'default', // pages[2].template (will load id="default" script-view)
+//					backgroundImage: 'pix/kenna-7.jpg', // pages[2].backgroundImage
+//					app: '',
+//					content: [
+//						{
+//							title1:'Big Title Mirza',
+//							lead1: 'lead 1 um was geht es - um mirza',
+//							text1: 'text1: keine ahnung um was es geht in diesem text- aber er wird angezeigt ',
+//							title2: 'second title mirza',
+//							lead2: 'and this is the second lead- still no answer but mirza',
+//							text2: 'Mein Name ist Mirza und ich fahre gerne nach Indien. <br /> and some more text to'
+//						}
+//					]
+//				},
+//				// this is a page object pages[3]
+//				// the overview and detail view are within the same page (clicking an album will load a separate view for the detail, but not change to a new page)
+//				{
+//					pageTitel: 'ich bin die Gallerie-Applikation', // pages[3].pageTitel
+//					titelNav: 'Albums', // pages[3].titelNav
+//					text: '', // pages[3].text
+//					template: 'galleryApp', // pages[3].template (will load id="galleryApp" script-view)
+//					backgroundImage: 'pix/feets/feets8.jpg',
+//					app: 'galleryOverviewApp' // partial view id app
+//				},
+//				{
+//					pageTitel: 'unter ferner liefen', // pages[4].pageTitel
+//					titelNav: 'Tech Stack', // pages[4].titelNav
+//					text: "Yep, that's a Singleton. Once you create an object literal in JavaScript you've reserved a little piece of memory and no other object will ever be just like that one. Now, depending on the scope you might have only created a local variable but if that user is sitting outside a function then it's globally available to anyone who wants to fiddle with it. I guess the most famous Singleton probably looks like this: $. To put it another way, ever notice how you can use jQuery anywhere in your app after you've included it on the page...? Boom! Singleton! ", // pages[4].text
+//					template: 'default', // pages[4].template (will load id="galleryApp" script-view)
+//					backgroundImage: 'pix/feets/feets8.jpg',
+//					app: '',
+//					content: [
+//						{
+//							title1:'Big Title Tech',
+//							lead1: 'lead 1 to title tech',
+//							text1: 'about tech texts - what the hell is a singleton? <br />reserved a little piece of memory and no other object will ever be just like that one. Now, depending on the scope you might have only created a local variable but if that user is sitting outside a function then it is globally available to anyone who wants to fiddle with it. I guess the most famous Singleton probably looks like this',
+//							title2: 'second title techie stuff - a Singleton ',
+//							lead2: 'and this is the second lead of tech nerding stuff ',
+//							text2: "Mein Name ist Nördi - und ich fahre gerne nach Indien. <br /> and some more text to Yep, that's a Singleton. Once you create an object literal in JavaScript you've reserved a little piece of memory and no other object will ever be just like that one. Now, depending on the scope you might have only created a local variable but if that user is sitting outside a function then it's globally available to anyone who wants to fiddle with it. I guess the most famous Singleton probably looks like this: To put it another way, ever notice how you can use jQuery anywhere in your app after you've included it on the page...? Boom! Singleton!"
+//						}
+//					]
+//				},
+//				{
+//					pageTitel: 'Upload', // pages[4].pageTitel
+//					titelNav: 'Upload', // pages[4].titelNav
+//					text: "", // pages[4].text
+//					template: 'uploaderApp', // pages[4].template (will load id="galleryApp" script-view)
+//					backgroundImage: '',
+//					app: 'upload' // partial view id app
+//				},
+//				{
+//					pageTitel: 'Ich bin ein neues TEmplate BG Prominent', // pages[2].pageTitel
+//					titelNav: 'neues Template', // pages[2].titelNav
+//					text: 'Mein Name ist Mirza und ich fahre gerne nach Indien. <br />Er hörte leise Schritte hinter sich. Das bedeutete nichts Gutes. Wer würde ihm schon folgen, spät in der Nacht und dazu noch in dieser engen Gasse mitten im übel beleumundeten Hafenviertel? Gerade jetzt, wo er das Ding seines Lebens gedreht hatte und mit der Beute verschwinden wollte! Hatte einer seiner zahllosen Kollegen dieselbe Idee gehabt, ihn beobachtet und abgewartet, um ihn nun um die Früchte seiner Arbeit zu erleichtern?', // pages[2].text
+//					template: 'BgProminent', // pages[2].template (will load id="default" script-view)
+//					backgroundImage: 'pix/kenna-1.jpg', // pages[2].backgroundImage
+//					app: '',
+//					content: [
+//						{
+//							title1:'very Big Title here',
+//							lead1: 'lead 1 um was geht es - um ein neues Template',
+//							text1: 'text1: keine ahnung um was es geht in diesem text- aber er wird angezeigt ',
+//							title2: 'second title mirza',
+//							lead2: 'and this is the second lead- still no answer but mirza',
+//							text2: 'Mein Name ist Mirza und ich fahre gerne nach Indien. <br /> and some more text to'
+//						}
+//					]
+//				},
+//			]
+//		}
 
 		// 2. Model Albums and Galleries comes from server!!
 		// check init function for it
@@ -217,34 +219,8 @@
 						</article>
 					</div>
 					<div id="teasercontainer" class="one-third column teaser" >
-					teasers here:
-						<!--<div class="teaserbox" >-->
-								<!--<h3>Explore</h3>-->
-							<!--<div class="linkToGal">-->
-								<!--<a href="#" alt="#" >view this Gallery</a>-->
-							<!--</div>-->
-							<!--<div class="fader">-->
-								<!--<img src="pix/kenna-4.jpg" >-->
-							<!--</div>-->
-							<!--<div class="caption">-->
-								<!--<p>21.07.2021<br />by irvin penn</p>-->
-							<!--</div>-->
-						<!--</div>-->
-						<!--<div class="teaserbox" >-->
-							<!--<h3>See This</h3>-->
-							<!--<div class="linkToGal">-->
-								<!--<a href="#" alt="#" >view this Gallery</a>-->
-							<!--</div>-->
-							<!--<div class="fader">-->
-								<!--<img src="pix/kenna-4.jpg" >-->
-							<!--</div>-->
-							<!--<div class="caption">-->
-								<!--<p>21.07.2021<br />by irvin penn</p>-->
-							<!--</div>-->
-							<!--<div class="linkToGal">-->
-								<!--<a href="#" alt="#" >view this Gallery</a>-->
-							<!--</div>-->
-						<!--</div>-->
+					<p style="color:green;" >teasers here:</p>
+
 					</div>
 				</div>
 			</div>
@@ -466,7 +442,7 @@
 
 	<!--render teasers on the left side of a content view-->
 	<script id="teaserWrapper" type="application/felixguruscript">
-	{{#each teasers}}
+	{{#each singleentry}}
 		<div class="teaserbox">
 			<h3>{{titel}}</h3>
 			<div class="linkToGal">
@@ -598,14 +574,14 @@
 	<!-- start our functions -->
 	<script>
 		//
-		var app = function(){
+		var app = function() {
 
 //------------------------ private method template-7 ---------------------------------->
 
 			// view:id des script blocks, model = object/array, destinationDivID = container to publish rendered view
-			function renderView(view,model,destinationDivID){
+			function renderView(view, model, destinationDivID) {
 				// Read the particular template View
-				var template = $('#'+view).html();
+				var template = $('#' + view).html();
 				// Compile it through template7-compiler
 				var compiledTemplate = Template7.compile(template);
 				// read this particular Model (JSON-ojbect)
@@ -613,39 +589,40 @@
 				// compiled VIEW -ready to inject
 				var fullyRenderedView = compiledTemplate(context);
 				// inject into dom (argument: destinationDivID)
-				$('#'+destinationDivID).html(fullyRenderedView);
+				$('#' + destinationDivID).html(fullyRenderedView);
 			}
 
 			// ??
-			function includeView(partialViewID,viewContainerID){
+			function includeView(partialViewID, viewContainerID) {
 				//	console.log(partialViewID);
-				$('#'+viewContainerID).html($('#'+partialViewID).html())
+				$('#' + viewContainerID).html($('#' + partialViewID).html())
 
 			}
 
 			// include Titlebar into dom
-			function includeTitleBar(){
+			function includeTitleBar() {
 				$('#ContainerMenuBar').html($('#TitleNavBar').html());
 			}
 
 			// include Splash-Flasher on Start into dom before Main content is loading
-			function includeSplash(){
+			function includeSplash() {
 				$('#splash').html($('#splashView').html());
 			}
 
 			// include ThemeToggler Content to Wrapper
-			function includeThemeToggler(){
+			function includeThemeToggler() {
 				$('#ContainerThemeToggler').html($('#ThemeTogglerContent').html());
 			}
+
 			// include Footer Content into wrapper
-			function includeFooter(){
+			function includeFooter() {
 				$('#ContainerFooter').html($('#FooterBarContent').html());
 			}
 
 			//----- View specific /Sub Application Functions -----------------
 
 			// load all images from 1 clicked album
-			function loadGalleryDetail(albumIdx){
+			function loadGalleryDetail(albumIdx) {
 				// actual Gallery choosen by user
 				//console.log(albums.gallery[albumIdx]);
 
@@ -662,12 +639,12 @@
 					loop: true
 				})
 				// attach info button for info-layer
-				$('.info').on('click', function(){
+				$('.info').on('click', function () {
 					viewInfoToggler();
 				});
 
 				// attach close button and empty gallery container on exit
-				$('#galleryDetailContainer .close').css('cursor', 'pointer').on('click', function(){
+				$('#galleryDetailContainer .close').css('cursor', 'pointer').on('click', function () {
 					$('#galleryDetailContainer').hide().empty()
 					$('#galleryOverviewContainer').show()
 				})
@@ -675,25 +652,25 @@
 			}
 
 			// Render and attach Click events on Navigation
-			function createMenu(){
+			function createMenu() {
 				// render navigation to containerNav
-				renderView('navig',pages,'ContainerNav');
+				renderView('navig', pages, 'ContainerNav');
 				// attachement of Events
 				attachNavigEvents()
 			}
 
 			// function viewInfoToggler in gallery detail view
-			function viewInfoToggler(){
+			function viewInfoToggler() {
 				// hide it if shown
-				if ($('#imgdetails').hasClass('show')){
+				if ($('#imgdetails').hasClass('show')) {
 					$('.img-caption').css({
-						'visibility':'hidden'
+						'visibility': 'hidden'
 					});
 					$('#imgdetails').removeClass('show');
-				}else{
+				} else {
 					// show it -if hidden
 					$('.img-caption').css({
-						'visibility':'visible'
+						'visibility': 'visible'
 					});
 					$('#imgdetails').addClass('show');
 				}
@@ -702,8 +679,8 @@
 			// ------------Attaching events to rendered Views --------------------------------------
 
 			// attach click-events to Navigation after Redering to generate internal links (class: menulink)
-			var attachNavigEvents = function(){
-				$('#ContainerNav a.menulink').on('click',function(e){
+			var attachNavigEvents = function () {
+				$('#ContainerNav a.menulink').on('click', function (e) {
 					e.preventDefault()
 					// click event auf navig- elemente
 					changePage($(this).data('index'))
@@ -714,16 +691,16 @@
 			}
 
 			//click-event auf menu-toggler button
-			function attachMenuToggler(){
-				$('#BtnMenuToggler').on('click',function(e){
+			function attachMenuToggler() {
+				$('#BtnMenuToggler').on('click', function (e) {
 					e.preventDefault();
 					MenuToggler();
 				})
 			}
 
 			// click event auf Theme Toggler attachen
-			function attachThemeToggler(){
-				$('#themetoggler a').on('click' , function(e){
+			function attachThemeToggler() {
+				$('#themetoggler a').on('click', function (e) {
 					e.preventDefault();
 					// execute Theme toggler
 					ThemeToggler();
@@ -732,8 +709,8 @@
 			}
 
 			// clickfunction ThemeChoser
-			function attachThemeChooserEvent(){
-				$('.themelink').on('click', function(e){
+			function attachThemeChooserEvent() {
+				$('.themelink').on('click', function (e) {
 					e.preventDefault();
 					//console.log('clicked on a themechooser, well done ');
 					changeTheme($(this).attr('data-themepath'));
@@ -741,72 +718,80 @@
 			}
 
 			// click events auf albums in gallery overview
-			function attachAlbumEvents(){
-				$('#galleryOverviewContainer tr').css('cursor','pointer').on('click',function(e){
+			function attachAlbumEvents() {
+				$('#galleryOverviewContainer tr').css('cursor', 'pointer').on('click', function (e) {
 					e.preventDefault()
 					loadGalleryDetail($(this).data('idx'));
 				})
 			}
 
-			function changeTheme(themepath){
+			function changeTheme(themepath) {
 				//  to another style-sheet
 				$('#themeCss').attr('href', themepath);
 				closeTTmenu();
 			}
 
-			function getPageIdxByNavTitel(navTitel){
+			function getPageIdxByNavTitel(navTitel) {
 				// iterate over array of pages
 				var idx = 0
-				$.each(pages.seiten,function(i,el){ // i represents the iteration-index, el represents the element
+				$.each(pages.seiten, function (i, el) { // i represents the iteration-index, el represents the element
 					// now iterate over the individual page-obejct
 					for (var key in pages.seiten[i]) {
-					  if (key == 'titelNav' && pages.seiten[i][key].toLowerCase() == navTitel.toLowerCase()) {
-						idx = i
-					  }
+						if (key == 'titelNav' && pages.seiten[i][key].toLowerCase() == navTitel.toLowerCase()) {
+							idx = i
+						}
 					}
 				})
 
 				return idx
 			}
 
-			function closeBubble(){
-				$('#bubble').fadeOut(function(){
+			function closeBubble() {
+				$('#bubble').fadeOut(function () {
 					$(this).remove()
 				})
 			}
+
 			// uploading bubble
-			function setBubble(text){
+			function setBubble(text) {
 				$('#bubble').remove()
-				var newBubble = $('<div>',{id:'bubble'}).css({
-					position:'absolute',
-					background:'#F2F2F2',
-					padding:50,
-					borderRadius:4,
-					zIndex:999,
-					color:'#333',
-					maxWidth:300,
-					display:'none',
+				var newBubble = $('<div>', {id: 'bubble'}).css({
+					position: 'absolute',
+					background: '#F2F2F2',
+					padding: 50,
+					borderRadius: 4,
+					zIndex: 999,
+					color: '#333',
+					maxWidth: 300,
+					display: 'none',
 					top: parseInt(($(window).height() - 50) / 2),
-					left:parseInt(($(window).width() - 300) / 2)
+					left: parseInt(($(window).width() - 300) / 2)
 				}).html(text).appendTo('body').fadeIn()
 			}
 
 //---------------------------------------- public methods -------------------------------------/
 // functions with call in variable notation. return an object
 			// change page
-			var changePage = function(pageIdx){
+			var changePage = function (pageIdx) {
 
 				// get page from pages model (with object seiten)
 				actPage = pages.seiten[pageIdx]
 				// actPageIdx = Index from argument
 				actPageIdx = pageIdx
 				//1: renderView Content: Model,  home,  div-container
-				renderView(actPage.template,actPage,'ContainerContent');
+				renderView(actPage.template, actPage, 'ContainerContent');
+				// check for template - if default then render teasers
+				if (actPage.template == 'default') {
+					renderTeaser();
+				}
+
+
 				// check for sub-apps
-				if(actPage.app!=''){
-					switch(actPage.app){
+				if (actPage.app != '') {
+					switch (actPage.app) {
 						// if the subapp is galleryOverview, render the partialview
-						case 'galleryOverviewApp': {
+						case 'galleryOverviewApp':
+						{
 							// render album overview into "galleryoverviewcontainer"
 							listGalleries()
 							// attach links to albums
@@ -814,7 +799,8 @@
 							// these links will habe the showGalleryDetail function attached to onClick. See line 291
 						}
 
-						case 'upload': {
+						case 'upload':
+						{
 							// get albums from Model
 
 
@@ -829,43 +815,43 @@
 				}
 
 			}
-			
+
 			function dataURItoBlob(dataURI) {
 				// convert base64 to raw binary data held in a string
-				
+
 				var byteString = atob(dataURI.split(',')[1]);
-			 
+
 				// separate out the mime component
 				var mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0];
-			 
+
 				// write the bytes of the string to an ArrayBuffer
 				var arrayBuffer = new ArrayBuffer(byteString.length);
 				var _ia = new Uint8Array(arrayBuffer);
 				for (var i = 0; i < byteString.length; i++) {
 					_ia[i] = byteString.charCodeAt(i);
 				}
-			 
+
 				var dataView = new DataView(arrayBuffer);
-				var blob = new Blob([dataView.buffer], { type: mimeString });
+				var blob = new Blob([dataView.buffer], {type: mimeString});
 				return blob;
 			}
-			
-			function populateSelectBox(){
-				$.each(albums.gallery, function(i){
-					var newOption =  $('<option>',{value:albums.gallery[i].albumID}).text(albums.gallery[i].albumtitel).appendTo('#albumList');
+
+			function populateSelectBox() {
+				$.each(albums.gallery, function (i) {
+					var newOption = $('<option>', {value: albums.gallery[i].albumID}).text(albums.gallery[i].albumtitel).appendTo('#albumList');
 				})
 				// toggle new Album field based on selection of existing albums (or new one)
-				$('#albumList').on('change',function(e){
-					if(isNaN($(this).val())){
+				$('#albumList').on('change', function (e) {
+					if (isNaN($(this).val())) {
 						$('#newAlbumOnUpload').show();
 					}
-					else{
+					else {
 						$('#newAlbumOnUpload').hide();
 					}
 				})
 
 				// on change of upload field, do PREVIEW
-				$('input[type=file]').on('change',function(evt){
+				$('input[type=file]').on('change', function (evt) {
 					// FileList object from evt-callback
 					var files = evt.target.files;
 					// new FormData obj
@@ -938,13 +924,13 @@
 					  data: formData,
 					  processData: false,
 					  contentType: false,
-					  success: function(data){
-						// when post successful, then reload the gallery-model
-						getModelFromServer()
-						// Close Upload Bubble
-						closeBubble()
-						// show thanks screen
-						showUploadThanksScreen()
+					  success: function(data) {
+						  // when post successful, then reload the gallery-model
+						  getModelFromServer()
+						  // Close Upload Bubble
+						  closeBubble()
+						  // show thanks screen
+						  showUploadThanksScreen()
 					  }
 					});
 
@@ -953,14 +939,17 @@
 
 			}
 
-			function hideUploadThanksScreen(){
-				$('#uploadThanks').fadeOut(function(){
+			function hideUploadThanksScreen() {
+				$('#uploadThanks').fadeOut(function () {
 					$(this).empty();
 				})
 			}
 
-			function showUploadThanksScreen(){
-				renderView('uploaderThanksScreen',{h1titel:'Hurray',h2titel:'the Pictures has been uploaded'},'uploadThanks');
+			function showUploadThanksScreen() {
+				renderView('uploaderThanksScreen', {
+					h1titel: 'Hurray',
+					h2titel: 'the Pictures has been uploaded'
+				}, 'uploadThanks');
 				$('#uploadThanks')
 //						.css({
 //					position:'absolute',
@@ -972,12 +961,12 @@
 //					background:'#222',
 //					color:'#DDD'
 //				})
-			.fadeIn()
+						.fadeIn()
 //				$('#moreUploadsBtn').on('click',function(e){
 //					hideUploadThanksScreen()
 //					changePage(actPageIdx)
 //				})
-				$('#toTheGaleriesBtn').on('click',function(e){
+				$('#toTheGaleriesBtn').on('click', function (e) {
 					// jump to the album page.
 					// because we dont know the index at this time, i added a function which allows us, to search within the pages-model for navTitles.
 					// the function returns the index of the page within the pages-model.
@@ -987,27 +976,25 @@
 			}
 
 			// list all galleries
-			function listGalleries(actAlbumIdx){
+			function listGalleries(actAlbumIdx) {
 				//1: renderView Content: Model(JSON Albums: gallery-Array), div-container
-				renderView('galleryOverview',albums,'galleryOverviewContainer');
+				renderView('galleryOverview', albums, 'galleryOverviewContainer');
 			}
-			
+
 			function convertDataURIToBinary(dataURI) {
-			  var base64Index = dataURI.indexOf(BASE64_MARKER) + BASE64_MARKER.length;
-			  var base64 = dataURI.substring(base64Index);
-			  var raw = window.atob(base64);
-			  var rawLength = raw.length;
-			  var array = new Uint8Array(new ArrayBuffer(rawLength));
-			 
-			  for(i = 0; i < rawLength; i++) {
-				array[i] = raw.charCodeAt(i);
-			  }
-			  return array;
+				var base64Index = dataURI.indexOf(BASE64_MARKER) + BASE64_MARKER.length;
+				var base64 = dataURI.substring(base64Index);
+				var raw = window.atob(base64);
+				var rawLength = raw.length;
+				var array = new Uint8Array(new ArrayBuffer(rawLength));
+
+				for (i = 0; i < rawLength; i++) {
+					array[i] = raw.charCodeAt(i);
+				}
+				return array;
 			}
 
 
-
-			
 			//funktion resize images
 			function resizeMe(img) {
 				var canvas = document.createElement('canvas');
@@ -1036,22 +1023,21 @@
 				var ctx = canvas.getContext("2d");
 				ctx.drawImage(img, 0, 0, width, height);
 				//preview.appendChild(canvas); // do the actual resized preview
-				return canvas.toDataURL("image/jpg",0.8); // get the data from canvas as 80% JPG (can be also PNG, etc.)
+				return canvas.toDataURL("image/jpg", 0.8); // get the data from canvas as 80% JPG (can be also PNG, etc.)
 			}
 
 
-
 			// function: is menu is open or closed
-			function MenuToggler(){
-				if ($('#navWrapper').hasClass('open')){
+			function MenuToggler() {
+				if ($('#navWrapper').hasClass('open')) {
 					closeNav()
-				}else{
+				} else {
 					openNav()
 				}
 			}
 
 			//JQuery navigation show-hide functions
-			function openNav(){
+			function openNav() {
 				//move ContainerContent with css-translate
 				$('#ContainerContent').css({
 					'transform': 'translate3d(300px,0,0)'
@@ -1060,33 +1046,33 @@
 				// add class open & set visible
 				$('#navWrapper').addClass('open')
 						.css({
-					'visibility' : 'visible'
-				});
+							'visibility': 'visible'
+						});
 
 				// open the navigation content
 				$('#navContent').delay(500).css({
-					'opacity' : '1',
+					'opacity': '1',
 					'transform': "translate3d(0,0,0)"
 				});
 				//console.log('open Nav finished');
 			};
 
-			function closeNav(){
+			function closeNav() {
 
 				// fade back and CLOSING Menu bar
 				$('#navContent').css({
-					'opacity' : '0.6',
+					'opacity': '0.6',
 					'transform': "scale(0.6) translate3d(0,0,0)"
-					},200);
+				}, 200);
 
 				// navWrapper: set visibility hidden after delay-function
 				$('#navWrapper').delay(351)
-					.queue(function(next){
-						$(this).css({
-							'visibility' : 'hidden'
+						.queue(function (next) {
+							$(this).css({
+								'visibility': 'hidden'
+							});
+							next()
 						});
-					next()
-				});
 
 				//remove class open
 				$('#navWrapper').removeClass('open');
@@ -1094,55 +1080,54 @@
 
 				// move back ContainerContent
 				$('#ContainerContent').delay(550)
-					.queue(function(closeCC){
-						$(this).css({
-							'transform': 'translate3d(0,0,0)'
+						.queue(function (closeCC) {
+							$(this).css({
+								'transform': 'translate3d(0,0,0)'
+							});
+							closeCC()
 						});
-						closeCC()
-					});
 
 
 			};
 
 
 			// function is ThemeToggler menu is open or closed ?
-			function ThemeToggler(){
-				if ($('#ContainerThemeToggler').hasClass('open')){
+			function ThemeToggler() {
+				if ($('#ContainerThemeToggler').hasClass('open')) {
 					closeTTmenu()
-				}else{
+				} else {
 					openTTmenu()
 				}
 			}
 
 
-
 			// function theme-Toggler open
-			function openTTmenu(){
+			function openTTmenu() {
 				// move main container to the left
 				$('#ContainerContent').css({
 					'transform': 'translate3d(-300px,0,0)'
-				},300);
+				}, 300);
 
 				// set Container TT to visible
 				$('#ContainerThemeToggler').css({
 					'visibility': 'visible'
-				//add class to container
+					//add class to container
 				}).addClass('open');
 
 				// animate and show menu
 				$('#ttwrapper').delay(1000).css({
-					'margin-top':'0',
-					'opacity':'1'
+					'margin-top': '0',
+					'opacity': '1'
 				}, 1200);
 
 			};
 
 			//function theme Toggler close
-			function closeTTmenu(){
+			function closeTTmenu() {
 				// animate and show menu
 				$('#ttwrapper').css({
-					'margin-top':'-300px',
-					'opacity':'0.4'
+					'margin-top': '-300px',
+					'opacity': '0.4'
 				}, 200);
 
 				// set container TT to invisible -visible
@@ -1153,21 +1138,20 @@
 
 				// delayed continer move back into place
 				$('#ContainerContent').delay(500)
-					.queue(function(next){
-						$(this).css({
-							'transform': 'translate3d(0,0,0)'
-						},250);
-					next()
-				});
+						.queue(function (next) {
+							$(this).css({
+								'transform': 'translate3d(0,0,0)'
+							}, 250);
+							next()
+						});
 			}
-
 
 
 			// execute listGalleries
 			listGalleries();
 
-			function getModelFromServer(){
-				$.get('http://flx-media.ch/spa-api.cfm?callback=', function(data){
+			function getModelFromServer() {
+				$.get('http://flx-media.ch/spa-api.cfm?callback=', function (data) {
 					//property gallery add and fill with callback from get-JSON request.
 					albums.gallery = JSON.parse(data);
 				})
@@ -1176,54 +1160,61 @@
 //			RenderTeasers();
 
 
-
 			// render Partial View Teasers
-			function RenderTeasers(){
+			function renderTeaser() {
 				//1: renderView Content: Model(JSON Albums: gallery-Array), div-container
-				renderView('teaserWrapper',teasers,'galleryOverview');
+
+				console.log(teasers);
+				renderView('teaserWrapper', teasers, 'teasercontainer');
 			}
 
 			// execute ListTeasers
 
 
-			function getTeasersFromServer(){
-				$.get('http://flx-media.ch/spa-api-tea.cfm?callback=', function(datateaser){
+			function getTeasersFromServer() {
+				$.get('http://flx-media.ch/spa-api-tea.cfm?callback=', function (datateaser) {
 					// property teasers from JSON teasers
-					teasers = JSON.parse(datateaser);
-					console.log(teasers);
+					teasers.singleentry = JSON.parse(datateaser);
+//					console.log(teasers.singleentry);//					renderTeaser();
 				})
 			}
 
 			// init function - do this once
-			var init = function(){
-				// function get data model form server (albums json object)
-				getModelFromServer()
-				// function to get teasers from server
-				getTeasersFromServer()
-				// do  initial tasks and do it with variable actPageIDX (declared start page = 0)
-				changePage(actPageIdx)
-				// render Menu and attach events
-				//One-timer: if content of containerNav == empty.. (Only true on PAGELOAD )
-				createMenu()
-				// includeTitleBar
-				includeTitleBar()
-				// include Footer
-				includeFooter()
-				// include ThemeToggler
-				includeThemeToggler()
-				// attach menuToggler to MenuBar link
-				attachMenuToggler()
-				// attach ThemeToggler to MenuBar link
-				attachThemeToggler()
-				// attach ThemeChooserEvent
-				attachThemeChooserEvent()
+			var init = function () {
+				// get all pages from server before
+				$.get('http://flx-media.ch/spa-api-pages.cfm?callback=', function (data) {
+					alert(1);
+					console.log(data);
+					pages = data;
+					// function get data model form server (albums json object)
+					getModelFromServer()
+					// function to get teasers from server
+					getTeasersFromServer()
+					// do  initial tasks and do it with variable actPageIDX (declared start page = 0)
+					changePage(actPageIdx)
+					// render Menu and attach events
+					//One-timer: if content of containerNav == empty.. (Only true on PAGELOAD )
+					createMenu()
+					// includeTitleBar
+					includeTitleBar()
+					// include Footer
+					includeFooter()
+					// include ThemeToggler
+					includeThemeToggler()
+					// attach menuToggler to MenuBar link
+					attachMenuToggler()
+					// attach ThemeToggler to MenuBar link
+					attachThemeToggler()
+					// attach ThemeChooserEvent
+					attachThemeChooserEvent()
 
-				// hide splash after 2 sec
-				setTimeout(function(){
-					$('#splash').fadeOut(200, function(){
-						$('#splash').remove()
-					});
-				},500)
+					// hide splash after 2 sec
+					setTimeout(function () {
+						$('#splash').fadeOut(200, function () {
+							$('#splash').remove()
+						});
+					}, 500)
+				});
 			}
 
 			// return instance RETURN OBJECT an expose PUBLIC methods

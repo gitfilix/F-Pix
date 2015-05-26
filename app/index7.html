@@ -1,0 +1,1252 @@
+<!DOCTYPE HTML>
+
+<html><head>
+	<meta charset="utf-8">
+	<title>SPA FLX- style v7 :)</title>
+
+	<meta name="description" content="single page application Photogallery F Pix">
+	<meta name="author" content="flx, mrz">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href='http://fonts.googleapis.com/css?family=Neuton:200,400|Raleway:500,300' rel='stylesheet' type='text/css'>
+
+	<link rel="stylesheet" href="../css/normalize.css" />
+	<link rel="stylesheet" href="../css/swiper.css" />
+	<!--	skeleton ultralight responsive boilerplate-->
+	<link rel="stylesheet" href="../css/skeleton.css">
+	<!--load font awesome -->
+	<!--<link rel="stylesheet" href="components/fortawesome/font-awesome/v4.3.0/css/font-awesome.css">-->
+	<!--	dynamicly loaded MAIN stylesheet -->
+	<link rel="stylesheet" id="themeCss" href="../css/main-blue.css" />
+	<link rel="stylesheet" href="../css/mq.css" />
+	<!--<link rel="stylesheet" href="css/mq-overrides.css" />-->
+	<script src="../js/jquery-1.11.js"></script>
+	<script src="../js/template7.js"></script>
+	<script src="../js/swiper.jquery.min.js"></script>
+
+
+	<script>
+
+		// initial active page index - Home from pagesModel
+		var actPageIdx = 0
+		// initial active gallery index
+		var actAlbumIdx = 0
+		var albums = {}
+		var teasers ={}
+		// -------------------MODEL---------------------//
+		// 1. page-Structure pageModel
+//		var pages = {}
+		var pages = {
+			seiten : [
+				// this is a page object pages[0]
+				{
+					pageTitel: 'Felix Gallery', // pages[0].pageTitel
+					titelNav: 'Home', // pages[0].titelNav
+					text: 'a visual Compendium', // pages[0].text
+					template: 'home', // pages[0].template (will load id="home" script-view),
+					backgroundImage: 'pix/bgstart_city1.jpg', // pages[0].backgroundImage
+					app: ''
+				},
+				// this is a page object pages[1]
+				{
+					pageTitel: 'ich bin eine Inhalts-Seite', // pages[1].pageTitel
+					titelNav: 'Inhalt', // pages[1].titelNav
+					text: 'Er hörte leise Schritte hinter sich. Das bedeutete nichts Gutes. Wer würde ihm schon folgen, spät in der Nacht und dazu noch in dieser engen Gasse mitten im übel beleumundeten Hafenviertel? Gerade jetzt, wo er das Ding seines Lebens gedreht hatte und mit der Beute verschwinden wollte! Hatte einer seiner zahllosen Kollegen dieselbe Idee gehabt, ihn beobachtet und abgewartet, um ihn nun um die Früchte seiner Arbeit zu erleichtern?', // pages[1].text
+					template: 'TextTwoCol', // pages[1].template (will load id="default" script-view)
+					backgroundImage: 'pix/flugi_01.jpg', // pages[1].backgroundImage
+					app: '',
+					content: [
+						{
+							title1:'Big Title 1 inhalt',
+							lead1: 'lead 1 um was geht es ?',
+							text1: 'text1: dazu noch in dieser engen Gasse mitten im übel beleumundeten Hafenviertel? Er hörte leise Schritte hinter sich. Das bedeutete nichts Gutes. Wer würde ihm schon folgen, spät in der Nacht und dazu noch in dieser engen Gasse mitten im übel beleumundeten Hafenviertel? Gerade jetzt, wo er das Ding seines Lebens gedreht hatte und mit der Beute verschwinden wollte! Hatte einer seiner zahllosen Kollegen dieselbe Idee gehabt, ihn beobachtet und abgewartet, um ihn nun um die Früchte seiner Arbeit zu erleich',
+							title2: 'second title inhalt ',
+							lead2: 'and this is the second lead',
+							text2: 'Mein Name ist Mirza und ich fahre gerne nach Indien. <br /> and some more text to fill the empty space to give some impressions.. '
+						}
+					]
+				},
+				// this is a page object pages[2]
+				{
+					pageTitel: 'ich bin eine Inhalts-Seite 2', // pages[2].pageTitel
+					titelNav: 'mein nerviger Freund Mirza', // pages[2].titelNav
+					text: 'Mein Name ist Mirza und ich fahre gerne nach Indien. <br />Er hörte leise Schritte hinter sich. Das bedeutete nichts Gutes. Wer würde ihm schon folgen, spät in der Nacht und dazu noch in dieser engen Gasse mitten im übel beleumundeten Hafenviertel? Gerade jetzt, wo er das Ding seines Lebens gedreht hatte und mit der Beute verschwinden wollte! Hatte einer seiner zahllosen Kollegen dieselbe Idee gehabt, ihn beobachtet und abgewartet, um ihn nun um die Früchte seiner Arbeit zu erleichtern?', // pages[2].text
+					template: 'default', // pages[2].template (will load id="default" script-view)
+					backgroundImage: 'pix/kenna-7.jpg', // pages[2].backgroundImage
+					app: '',
+					content: [
+						{
+							title1:'Big Title Mirza',
+							lead1: 'lead 1 um was geht es - um mirza',
+							text1: 'text1: keine ahnung um was es geht in diesem text- aber er wird angezeigt ',
+							title2: 'second title mirza',
+							lead2: 'and this is the second lead- still no answer but mirza',
+							text2: 'Mein Name ist Mirza und ich fahre gerne nach Indien. <br /> and some more text to'
+						}
+					]
+				},
+				// this is a page object pages[3]
+				// the overview and detail view are within the same page (clicking an album will load a separate view for the detail, but not change to a new page)
+				{
+					pageTitel: 'ich bin die Gallerie-Applikation', // pages[3].pageTitel
+					titelNav: 'Albums', // pages[3].titelNav
+					text: '', // pages[3].text
+					template: 'galleryApp', // pages[3].template (will load id="galleryApp" script-view)
+					backgroundImage: 'pix/feets/feets8.jpg',
+					app: 'galleryOverviewApp' // partial view id app
+				},
+				{
+					pageTitel: 'unter ferner liefen', // pages[4].pageTitel
+					titelNav: 'Tech Stack', // pages[4].titelNav
+					text: "Yep, that's a Singleton. Once you create an object literal in JavaScript you've reserved a little piece of memory and no other object will ever be just like that one. Now, depending on the scope you might have only created a local variable but if that user is sitting outside a function then it's globally available to anyone who wants to fiddle with it. I guess the most famous Singleton probably looks like this: $. To put it another way, ever notice how you can use jQuery anywhere in your app after you've included it on the page...? Boom! Singleton! ", // pages[4].text
+					template: 'default', // pages[4].template (will load id="galleryApp" script-view)
+					backgroundImage: 'pix/feets/feets8.jpg',
+					app: '',
+					content: [
+						{
+							title1:'Big Title Tech',
+							lead1: 'lead 1 to title tech',
+							text1: 'about tech texts - what the hell is a singleton? <br />reserved a little piece of memory and no other object will ever be just like that one. Now, depending on the scope you might have only created a local variable but if that user is sitting outside a function then it is globally available to anyone who wants to fiddle with it. I guess the most famous Singleton probably looks like this',
+							title2: 'second title techie stuff - a Singleton ',
+							lead2: 'and this is the second lead of tech nerding stuff ',
+							text2: "Mein Name ist Nördi - und ich fahre gerne nach Indien. <br /> and some more text to Yep, that's a Singleton. Once you create an object literal in JavaScript you've reserved a little piece of memory and no other object will ever be just like that one. Now, depending on the scope you might have only created a local variable but if that user is sitting outside a function then it's globally available to anyone who wants to fiddle with it. I guess the most famous Singleton probably looks like this: To put it another way, ever notice how you can use jQuery anywhere in your app after you've included it on the page...? Boom! Singleton!"
+						}
+					]
+				},
+				{
+					pageTitel: 'Upload', // pages[4].pageTitel
+					titelNav: 'Upload', // pages[4].titelNav
+					text: "", // pages[4].text
+					template: 'uploaderApp', // pages[4].template (will load id="galleryApp" script-view)
+					backgroundImage: '',
+					app: 'upload' // partial view id app
+				},
+				{
+					pageTitel: 'Ich bin ein neues TEmplate BG Prominent', // pages[2].pageTitel
+					titelNav: 'neues Template', // pages[2].titelNav
+					text: 'Mein Name ist Mirza und ich fahre gerne nach Indien. <br />Er hörte leise Schritte hinter sich. Das bedeutete nichts Gutes. Wer würde ihm schon folgen, spät in der Nacht und dazu noch in dieser engen Gasse mitten im übel beleumundeten Hafenviertel? Gerade jetzt, wo er das Ding seines Lebens gedreht hatte und mit der Beute verschwinden wollte! Hatte einer seiner zahllosen Kollegen dieselbe Idee gehabt, ihn beobachtet und abgewartet, um ihn nun um die Früchte seiner Arbeit zu erleichtern?', // pages[2].text
+					template: 'BgProminent', // pages[2].template (will load id="default" script-view)
+					backgroundImage: 'pix/kenna-1.jpg', // pages[2].backgroundImage
+					app: '',
+					content: [
+						{
+							title1:'very Big Title here',
+							lead1: 'lead 1 um was geht es - um ein neues Template',
+							text1: 'text1: keine ahnung um was es geht in diesem text- aber er wird angezeigt ',
+							title2: 'second title mirza',
+							lead2: 'and this is the second lead- still no answer but mirza',
+							text2: 'Mein Name ist Mirza und ich fahre gerne nach Indien. <br /> and some more text to'
+						}
+					]
+				},
+			]
+		}
+
+		// 2. Model Albums and Galleries comes from server!!
+		// check init function for it
+
+	</script>
+	<!--	 favicon -->
+	<!--	<link rel="icon" type="image/png" href="images/favicon.png">-->
+</head>
+
+<body>
+	<!-- Primary Container skeleton Layout: bunch of containers –––-->
+	<!-- CONTAINERS - layout wrappers-->
+	<div id="ContainerWrapper" >
+		<!--	navigation Container-->
+		<div id="ContainerNav"></div>
+		<!--	Menu Title bar -->
+		<div id="ContainerMenuBar"></div>
+		<!--	container Theme toggler-->
+		<div id="ContainerThemeToggler"></div>
+		<!--	Content Container-->
+		<div id="ContainerContent" ></div>
+		<!--	container Footer-->
+		<div id="ContainerFooter"></div>
+	</div>
+
+
+	<!-- SPlash Splash -Screen Flash-->
+	<div id="splash" style="position:absolute; left:0; right:0; bottom:0; height:100%; width:100%; z-index:100; background:#252525;">
+		<div id="splash-container">
+			<div class="splash-content">
+				<h1>Loading</h1>
+				<h2>Single Page Application Gallery</h2>
+				<svg id="boxLoader" width="50px" height="50px" viewBox="0 0 35 35" preserveAspectRatio="none">
+					<rect x="0" fill="#0FF" width="45" height="45" />
+				</svg>
+				<h3>in moonwalker style... ;-)</h3>
+				<p>&copy; by FLX</p>
+			</div>
+		</div>
+	</div>
+
+
+	<!-- --------------------------- VIEW s ----------------------------------------------------- -->
+
+	<!--	home start View  -->
+	<script id="home" type="application/mirzaguruscript">
+		<div class="container">
+			<div id="homeWrapper" style="background:transparent url('{{backgroundImage}}') center top no-repeat;background-size:cover;">
+				<div class="row" >
+					<div class="twelve columns homecontainer">
+						<div class="center">
+							<h1>{{pageTitel}}</h1>
+							<h2>{{text}}</h2>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</script>
+
+	<!--	default Info Text  View - with Teasers on the side -->
+	<script id="default" type="application/mirzaguruscript">
+	<div class="container">
+		<div class="row articlecontainer">
+			<div class="twelve columns">
+				<div class="row">
+					<div class="two-thirds column">
+						<article class="articleDefault">
+							<h2>{{pageTitel}}</h2>
+							<p>{{text}}</p>
+							<h3>{{content[0].title1}}</h3>
+							<h4>{{content[0].lead1}}</h4>
+							<p>{{content[0].text1}}</p>
+							<h3>{{content[0].title2}}</h3>
+							<h4>{{content[0].lead2}}</h4>
+							<p>{{content[0].text2}}</p>
+						</article>
+					</div>
+					<div id="teasercontainer" class="one-third column teaser" >
+					<p style="color:green;" >teasers here:</p>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	</script>
+
+	<!--View Text with Background in 2 Columns-->
+	<script id="TextTwoCol" type="application/felixguruscript">
+	<div id="ContentTwoCol" class="container" style="background:transparent url('{{backgroundImage}}') center top no-repeat; background-size:cover; height:100%;">
+		<div class="row articlecontainer">
+			<div class="six columns">
+				<article class="articleRight">
+					<h3>{{content[0].title1}}</h3>
+					<h4>{{content[0].lead1}}</h4>
+					<p>{{content[0].text1}}</p>
+				</article>
+			</div>
+			<div class="six columns">
+				<article class="articleLeft">
+					<h3>{{content[0].title2}}</h3>
+					<h4>{{content[0].lead2}}</h4>
+					<p>{{content[0].text2}}</p>
+				</article>
+			</div>
+		</div>
+	</div>
+	</script>
+
+	<!--View Background prominent and some small text on the side-->
+	<script id="BgProminent" type="application/felixguruscript">
+	<div class="container" style="background:transparent url('{{backgroundImage}}') center top no-repeat;background-size:cover; height:100%;">
+		<div class="row articlecontainer">
+			<div class="eight columns">
+				&nbsp;
+			</div>
+			<div class="four columns">
+				<aside class="asidetext">
+					<h2>{{pageTitel}}</h2>
+					<p>{{text}}</p>
+				</aside>
+			</div>
+		</div>
+	</div>
+	</script>
+
+	<!-- Gallery App View-->
+	<script id="galleryApp" type="application/felixguruscript">
+		<div id="appWrapper" >
+			<!--Container View for Table with albums-->
+			<div id="galleryOverviewContainer"></div>
+			<!--Container View for Details with Slider and Pictures Full View-->
+			<div id="galleryDetailContainer"></div>
+		</div>
+	</script>
+
+	<!-- Uploader View-->
+	<script id="uploaderApp" type="application/felixguruscript">
+		<div id="uploaderAppWrapper" style="background:transparent url('{{backgroundImage}}') center top no-repeat;background-size:cover; height:100%;">
+			<!-- load container upload and upload thanks -->
+			<div id="upload"></div>
+			<div id="uploadThanks"></div>
+		</div>
+	</script>
+
+	<!--	Splash Loader Overlay not necessary but cool just for Fun -->
+	<script id="splashView" type="application/filixguruscript">
+		<div class="content">
+			<div id="container">
+				<h1>Loading</h1>
+				<h2>Single Page Application Gallery</h2>
+				<svg id="boxLoader" width="50px" height="50px" viewBox="0 0 35 35" preserveAspectRatio="none">
+					<rect x="0" fill="#0FF" width="45" height="45" />
+				</svg>
+				<h3>in moonwalker style... ;-)</h3>
+			</div>
+		</div>
+	</script>
+
+	<!--	ThemeToggler Menu Content -->
+	<script id="ThemeTogglerContent" type="application/filixguruscript">
+		<div id="ttwrapper">
+			<div class="tttitle">
+				<h2>Themes</h2>
+			</div>
+			<div class="ttmenu">
+				<ul>
+					<li>
+						<a href="#" class="themelink" data-themepath="css/main-red.css">Lila Theme</a>
+					</li>
+					<li>
+						<a href="#" class="themelink" data-themepath="css/main-green.css">Green Theme</a>
+					</li>
+					<li>
+						<a href="#" class="themelink" data-themepath="css/main-blue.css">Cyan Theme</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</script>
+
+	<!--Footer bar with static content-->
+	<script id="FooterBarContent" type="application/filixscript">
+		<div class="row" id="footer">
+			<div class="two columns">
+				<img src="pix/logo-f62.png" >
+			</div>
+			<div class="four columns">
+				<p>
+					All photos are taken by Felix Adam
+				</p>
+				<small>
+					well, most of them...
+				</small>
+			</div>
+			<div class="four columns">
+				<p class="adress">
+					Felix Adam<br />
+					Bühlstrasse 16<br />
+					3012 Bern<br />
+				</p>
+			</div>
+			<div class="two columns">
+				<a href="http://www.web-kanal.ch" target="_blank">
+				&copy; by Webkanal
+				</a>
+			</div>
+		</div>
+	</script>
+
+<!-- ====================== PARTIALVIEWS (component TEMPLATES ) ============================= -->
+
+	<script id="navig" type="application/flixguruscript">
+		<div id="navWrapper">
+			<div id="navContent">
+				<div class="nav-title">
+					<a href="#">
+						<img src="pix/logo-f50.png" alt="logo"/>
+						<a/>
+					<h2>MENU</h2>
+				</div>
+				<div style="clear:both"></div>
+				<div class="menu-list">
+					<ul>
+						{{#each seiten}}
+						<li>
+							<a class="menulink" href="#" data-index="{{@index}}">
+								{{titelNav}}
+							</a>
+						</li>
+						{{/each}}
+						<li>
+							<a  href="http://www.webkanal.ch" target:"_blank">Webkanal</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</script>
+
+
+	<script id="TitleNavBar" type="application/felixguruscript">
+		<div class="menubar u-full-width u-cf">
+			<div class="row titlebar">
+				<div class="twelve column clear">
+					<div  id="menutoggler" >
+						<a href="#" id="BtnMenuToggler" class="menubarlinks" >
+							Menu
+						</a>
+					</div>
+					<div class="title-gal ">
+						<h1>F-Pix Gallery</h1>
+					</div>
+					<div id="themetoggler" >
+						<a href="#" id="BtnThemeChange" class="menubarlinks">
+							Themes
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</script>
+
+	<script id="uploaderForm" type="application/felixguruscript">
+	<div class="container">
+		<div class="row">
+			<div class="twelve uploaderTitle">
+				<h1>Upload your Files</h1>
+			</div>
+		</div>
+		<div class="row formstyle">
+			<form id="uploadForm" action="" method="post" enctype="multipart/form-data">
+				<div class="six columns">
+					<h3>1. Select an Album -or:</h3>
+					<select id="albumList" name="albumList" >
+						<option value="new">a new Album</option>
+					</select>
+					<div id="newAlbumOnUpload">
+					<h3>add a new Album</h3>
+					<input required="required" type="text" name="newAlbumTitle" id="newAlbumTitle" value="new Album"/>
+					</div>
+					<h3>2. choose your Images</h3>
+					<input type="file" multiple="multiple"  name="uploadFotos" id="uploadFotos" />
+					<h3>3. Upload</h3>
+					<input type="button" id="uploadSubmit" value="Upload Pictures" />
+					<br />
+					<br />
+				</div>
+				<div class="six columns">
+					<div id="previewUploadImages">
+						<h3>Preview</h3>
+						<div></div>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+	</script>
+
+	<!--render teasers on the left side of a content view-->
+	<script id="teaserWrapper" type="application/felixguruscript">
+	{{#each singleentry}}
+		<div class="teaserbox">
+			<h3>{{titel}}</h3>
+			<div class="linkToGal">
+				<a href="{{hreftarget}}" alt="#" >{{hreflabel}}</a>
+			</div>
+			<div class="fader">
+				<img src="{{imagepath}}" >
+			</div>
+			<div class="caption">
+				<p>21.07.2021<br />by irvin penn</p>
+			</div>
+		</div>
+	{{/each}}
+	</script>
+
+	<script id="uploaderThanksScreen" type="application/felixguruscript">
+	<div class="container">
+		<div class="row">
+				<div class="twelve uploaderTitle">
+					<div class="six columns">
+						<h1>{{h1titel}}</h1>
+						<br />
+						<h2>{{h2titel}}</h2>
+						<br />
+						<h2>Thank you for sharing this with us</h2>
+					</div>
+					<div class="six columns">
+						<br />
+						<button type="button" id="toTheGaleriesBtn">View Gallery</button>
+					</div>
+				</div>
+		</div>
+	</div>
+	</script>
+
+
+	<!--upload preview -->
+	<script id="uploaderPreviewSlider" type="application/mirzaguruscript">
+			<ul>
+				{{#each images}}
+					<li style="background: url('{{imgpath}}') center center no-repeat; background-size:cover">
+						<!--<img src="{{imgpath}}" alt="#" />-->
+					</li>
+				{{/each}}
+			</ul>
+	</script>
+
+	<script id="galleryOverview" type="application/felixguruscript">
+	<div class="container">
+		<div class="row">
+			<div class="twelve columns">
+				<div class="gallery-title">
+					<h1>Gallery Overview</h1>
+				</div>
+				<table id="galleryOverviewContainer">
+					<thead>
+						<tr class="theadalbum">
+							<td colspan="2">
+								Gallery
+							</td>
+							<td>
+								albumID
+							</td>
+							<td>
+								Creator
+							</td>
+							<td>
+								Date
+							</td>
+						</tr>
+					</thead>
+					<tbody>
+					{{#each gallery}}
+					<tr class="listsinglealbum" data-idx="{{@index}}">
+						<td>
+							<img src="{{images[0].imgpath}}" alt="{{images[0].imgtitel}}" />
+						</td>
+						<td>
+							{{albumtitel}}
+						</td>
+						<td>
+							{{albumID}}
+						</td>
+						<td>
+							{{creator}}
+						</td>
+						<td>
+							{{createdate}}
+						</td>
+						{{/each}}
+					</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+	</script>
+
+
+	<script id="galleryDetail" type="application/mirzaguruscript">
+		<div class="swiper-container" style="height: 100%;">
+			<div class="swiper-wrapper" style="height: 100%;">
+				{{#each images}}
+					<div id="img-slide" class="swiper-slide" style=" background: #111 url({{imgpath}}) center center no-repeat; background-size: contain; position:relative;" >
+						<div class="close gal-btn">
+							<a>close</a>
+						</div>
+						<div class="info gal-btn">
+							<a>info</a>
+						</div>
+						<div id="imgdetails" class="img-caption">
+							<h2>{{this.albumID}}</h2>
+								<div class="img-caption-detail">
+									<p>{{this.creator}} <br />{{this.createdate}}</p>
+								</div>
+							<div class="clear"></div>
+						</div>
+					</div>
+				{{/each}}
+			</div>
+		</div>
+	</script>
+
+
+
+	<!------------------------------- VIEW-MODEL -  APP CODE (business logic)--------------------------- -->
+
+
+	<!-- start our functions -->
+	<script>
+		//
+		var app = function() {
+
+//------------------------ private method template-7 ---------------------------------->
+
+			// view:id des script blocks, model = object/array, destinationDivID = container to publish rendered view
+			function renderView(view, model, destinationDivID) {
+				// Read the particular template View
+				var template = $('#' + view).html();
+				// Compile it through template7-compiler
+				var compiledTemplate = Template7.compile(template);
+				// read this particular Model (JSON-ojbect)
+				var context = model // from argument
+				// compiled VIEW -ready to inject
+				var fullyRenderedView = compiledTemplate(context);
+				// inject into dom (argument: destinationDivID)
+				$('#' + destinationDivID).html(fullyRenderedView);
+			}
+
+			// ??
+			function includeView(partialViewID, viewContainerID) {
+				//	console.log(partialViewID);
+				$('#' + viewContainerID).html($('#' + partialViewID).html())
+
+			}
+
+			// include Titlebar into dom
+			function includeTitleBar() {
+				$('#ContainerMenuBar').html($('#TitleNavBar').html());
+			}
+
+			// include Splash-Flasher on Start into dom before Main content is loading
+			function includeSplash() {
+				$('#splash').html($('#splashView').html());
+			}
+
+			// include ThemeToggler Content to Wrapper
+			function includeThemeToggler() {
+				$('#ContainerThemeToggler').html($('#ThemeTogglerContent').html());
+			}
+
+			// include Footer Content into wrapper
+			function includeFooter() {
+				$('#ContainerFooter').html($('#FooterBarContent').html());
+			}
+
+			//----- View specific /Sub Application Functions -----------------
+
+			// load all images from 1 clicked album
+			function loadGalleryDetail(albumIdx) {
+				// actual Gallery choosen by user
+				//console.log(albums.gallery[albumIdx]);
+
+				var actGallery = albums.gallery[albumIdx];
+				//console.log(actGallery);
+				//render view: Gallery detail to galleryDetailContainer
+				renderView('galleryDetail', actGallery, 'galleryDetailContainer')
+				// show Container
+				$('#galleryDetailContainer').show()
+				// hide overview container
+				$('#galleryOverviewContainer').hide()
+				// initialize Swiper-plugin in swiper container
+				$('#galleryDetailContainer .swiper-container').swiper({
+					loop: true
+				})
+				// attach info button for info-layer
+				$('.info').on('click', function () {
+					viewInfoToggler();
+				});
+
+				// attach close button and empty gallery container on exit
+				$('#galleryDetailContainer .close').css('cursor', 'pointer').on('click', function () {
+					$('#galleryDetailContainer').hide().empty()
+					$('#galleryOverviewContainer').show()
+				})
+
+			}
+
+			// Render and attach Click events on Navigation
+			function createMenu() {
+				// render navigation to containerNav
+				renderView('navig', pages, 'ContainerNav');
+				// attachement of Events
+				attachNavigEvents()
+			}
+
+			// function viewInfoToggler in gallery detail view
+			function viewInfoToggler() {
+				// hide it if shown
+				if ($('#imgdetails').hasClass('show')) {
+					$('.img-caption').css({
+						'visibility': 'hidden'
+					});
+					$('#imgdetails').removeClass('show');
+				} else {
+					// show it -if hidden
+					$('.img-caption').css({
+						'visibility': 'visible'
+					});
+					$('#imgdetails').addClass('show');
+				}
+			}
+
+			// ------------Attaching events to rendered Views --------------------------------------
+
+			// attach click-events to Navigation after Redering to generate internal links (class: menulink)
+			var attachNavigEvents = function () {
+				$('#ContainerNav a.menulink').on('click', function (e) {
+					e.preventDefault()
+					// click event auf navig- elemente
+					changePage($(this).data('index'))
+					//close Navigation Container
+					closeNav();
+
+				})
+			}
+
+			//click-event auf menu-toggler button
+			function attachMenuToggler() {
+				$('#BtnMenuToggler').on('click', function (e) {
+					e.preventDefault();
+					MenuToggler();
+				})
+			}
+
+			// click event auf Theme Toggler attachen
+			function attachThemeToggler() {
+				$('#themetoggler a').on('click', function (e) {
+					e.preventDefault();
+					// execute Theme toggler
+					ThemeToggler();
+					//console.log('themeToggler was clicked, nice')
+				})
+			}
+
+			// clickfunction ThemeChoser
+			function attachThemeChooserEvent() {
+				$('.themelink').on('click', function (e) {
+					e.preventDefault();
+					//console.log('clicked on a themechooser, well done ');
+					changeTheme($(this).attr('data-themepath'));
+				})
+			}
+
+			// click events auf albums in gallery overview
+			function attachAlbumEvents() {
+				$('#galleryOverviewContainer tr').css('cursor', 'pointer').on('click', function (e) {
+					e.preventDefault()
+					loadGalleryDetail($(this).data('idx'));
+				})
+			}
+
+			function changeTheme(themepath) {
+				//  to another style-sheet
+				$('#themeCss').attr('href', themepath);
+				closeTTmenu();
+			}
+
+			function getPageIdxByNavTitel(navTitel) {
+				// iterate over array of pages
+				var idx = 0
+				$.each(pages.seiten, function (i, el) { // i represents the iteration-index, el represents the element
+					// now iterate over the individual page-obejct
+					for (var key in pages.seiten[i]) {
+						if (key == 'titelNav' && pages.seiten[i][key].toLowerCase() == navTitel.toLowerCase()) {
+							idx = i
+						}
+					}
+				})
+
+				return idx
+			}
+
+			function closeBubble() {
+				$('#bubble').fadeOut(function () {
+					$(this).remove()
+				})
+			}
+
+			// uploading bubble
+			function setBubble(text) {
+				$('#bubble').remove()
+				var newBubble = $('<div>', {id: 'bubble'}).css({
+					position: 'absolute',
+					background: '#F2F2F2',
+					padding: 50,
+					borderRadius: 4,
+					zIndex: 999,
+					color: '#333',
+					maxWidth: 300,
+					display: 'none',
+					top: parseInt(($(window).height() - 50) / 2),
+					left: parseInt(($(window).width() - 300) / 2)
+				}).html(text).appendTo('body').fadeIn()
+			}
+
+//---------------------------------------- public methods -------------------------------------/
+// functions with call in variable notation. return an object
+			// change page
+			var changePage = function (pageIdx) {
+
+				// get page from pages model (with object seiten)
+				actPage = pages.seiten[pageIdx]
+				// actPageIdx = Index from argument
+				actPageIdx = pageIdx
+				//1: renderView Content: Model,  home,  div-container
+				renderView(actPage.template, actPage, 'ContainerContent');
+				// check for template - if default then render teasers
+				if (actPage.template == 'default') {
+					renderTeaser();
+				}
+
+
+				// check for sub-apps
+				if (actPage.app != '') {
+					switch (actPage.app) {
+						// if the subapp is galleryOverview, render the partialview
+						case 'galleryOverviewApp':
+						{
+							// render album overview into "galleryoverviewcontainer"
+							listGalleries()
+							// attach links to albums
+							attachAlbumEvents()
+							// these links will habe the showGalleryDetail function attached to onClick. See line 291
+						}
+
+						case 'upload':
+						{
+							// get albums from Model
+
+
+							includeView('uploaderForm', 'upload');
+							populateSelectBox()
+							// attachSubmitEvent
+						}
+						// the 'app' login is just an include without model, therefore i created a function "includeView"
+						//case 'login': includeView('login','appContainer') // appContainer is a global conatiner for addional apps in standard default-pages
+						//case 'upload' : includeView('upload','appContainer') // appContainer is a global conatiner for addional apps in standard default-pages
+					}
+				}
+
+			}
+
+			function dataURItoBlob(dataURI) {
+				// convert base64 to raw binary data held in a string
+
+				var byteString = atob(dataURI.split(',')[1]);
+
+				// separate out the mime component
+				var mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0];
+
+				// write the bytes of the string to an ArrayBuffer
+				var arrayBuffer = new ArrayBuffer(byteString.length);
+				var _ia = new Uint8Array(arrayBuffer);
+				for (var i = 0; i < byteString.length; i++) {
+					_ia[i] = byteString.charCodeAt(i);
+				}
+
+				var dataView = new DataView(arrayBuffer);
+				var blob = new Blob([dataView.buffer], {type: mimeString});
+				return blob;
+			}
+
+			function populateSelectBox() {
+				$.each(albums.gallery, function (i) {
+					var newOption = $('<option>', {value: albums.gallery[i].albumID}).text(albums.gallery[i].albumtitel).appendTo('#albumList');
+				})
+				// toggle new Album field based on selection of existing albums (or new one)
+				$('#albumList').on('change', function (e) {
+					if (isNaN($(this).val())) {
+						$('#newAlbumOnUpload').show();
+					}
+					else {
+						$('#newAlbumOnUpload').hide();
+					}
+				})
+
+				// on change of upload field, do PREVIEW
+				$('input[type=file]').on('change', function (evt) {
+					// FileList object from evt-callback
+					var files = evt.target.files;
+					// new FormData obj
+					formData = new FormData();
+					var previewModel = {};
+					previewModel['images'] = [];
+
+
+					// Loop through the FileList [array] and render image files as thumbnails.
+					for (var i = 0, f; f = files[i]; i++) {
+						// Only process image files.
+						if (!f.type.match('image.*')) {
+							continue;
+						}
+						// start new fileReaderAPI as base64
+						var reader = new FileReader();
+						// Closure to capture the file information.
+						/*reader.onload = (function(theFile) {
+							return function(e) {
+								//return dom for image of "theFile"
+								previewModel['images'].push({imgpath:e.target.result})
+								//var span = $('<span>').html('<img class="thumb" src="' + e.target.result + '" title="' + escape(theFile.name) + '" />').appendTo('#upload')
+							};
+						})(f);*/
+						//
+						
+						reader.onloadend = (function(f) {
+							return function(e) {
+								base64data = e.target.result;
+								var image = new Image();
+								image.src = URL.createObjectURL(f);
+								image.onload = function() {
+									var resized = resizeMe(image); // send it to canvas
+									var resizeBase64 = resized.replace(/^data:image\/(png|jpg);base64,/, "")
+									previewModel['images'].push({imgpath:resized})
+								
+									var blob = dataURItoBlob(resized);
+									formData.append("bilder", resizeBase64);
+								}
+								
+							};	
+						})(f)
+
+						// Load files into file reader
+						reader.readAsDataURL(f);
+						// add image to formData object under property "bilder"
+						//formData.append('uploadFotos', f);
+					}
+
+					//temp previwe model a
+					a = previewModel
+
+					setTimeout(function(){
+						renderView('uploaderPreviewSlider',a,'previewUploadImages>div')
+					},50)
+				})
+
+				$('#uploadSubmit').click(function(e){
+
+					setBubble('Uploading and Resizing Images... ')
+
+					e.preventDefault();
+					// append elems to formData Obj.
+					formData.append('albumTitle',$('#newAlbumTitle').val())
+					formData.append('albumList',$('#albumList').val())
+					// post the data to the server
+					$.ajax( {
+					  url: 'http://www.flx-media.ch/spa-api.cfm',
+					  type: 'POST',
+					  data: formData,
+					  processData: false,
+					  contentType: false,
+					  success: function(data) {
+						  // when post successful, then reload the gallery-model
+						  getModelFromServer()
+						  // Close Upload Bubble
+						  closeBubble()
+						  // show thanks screen
+						  showUploadThanksScreen()
+					  }
+					});
+
+
+				})
+
+			}
+
+			function hideUploadThanksScreen() {
+				$('#uploadThanks').fadeOut(function () {
+					$(this).empty();
+				})
+			}
+
+			function showUploadThanksScreen() {
+				renderView('uploaderThanksScreen', {
+					h1titel: 'Hurray',
+					h2titel: 'the Pictures has been uploaded'
+				}, 'uploadThanks');
+				$('#uploadThanks')
+//						.css({
+//					position:'absolute',
+//					top:'70 px',
+//					bottom:0,
+//					left:0,
+//					right:0,
+//					zIndex:999,
+//					background:'#222',
+//					color:'#DDD'
+//				})
+						.fadeIn()
+//				$('#moreUploadsBtn').on('click',function(e){
+//					hideUploadThanksScreen()
+//					changePage(actPageIdx)
+//				})
+				$('#toTheGaleriesBtn').on('click', function (e) {
+					// jump to the album page.
+					// because we dont know the index at this time, i added a function which allows us, to search within the pages-model for navTitles.
+					// the function returns the index of the page within the pages-model.
+					actPageIdx = getPageIdxByNavTitel('albums')
+					changePage(actPageIdx)
+				})
+			}
+
+			// list all galleries
+			function listGalleries(actAlbumIdx) {
+				//1: renderView Content: Model(JSON Albums: gallery-Array), div-container
+				renderView('galleryOverview', albums, 'galleryOverviewContainer');
+			}
+
+			function convertDataURIToBinary(dataURI) {
+				var base64Index = dataURI.indexOf(BASE64_MARKER) + BASE64_MARKER.length;
+				var base64 = dataURI.substring(base64Index);
+				var raw = window.atob(base64);
+				var rawLength = raw.length;
+				var array = new Uint8Array(new ArrayBuffer(rawLength));
+
+				for (i = 0; i < rawLength; i++) {
+					array[i] = raw.charCodeAt(i);
+				}
+				return array;
+			}
+
+
+			//funktion resize images
+			function resizeMe(img) {
+				var canvas = document.createElement('canvas');
+				var width = img.width;
+				var height = img.height;
+				// calculate the width and height, constraining the proportions
+				// landscape
+				if (width > height) {
+					if (width > 1024) {
+						//height *= max_width / width;
+						height = Math.round(height *= 1024 / width);
+						width = 1024;
+					}
+				}
+				//portrait
+				else {
+					if (height > 1024) {
+						//width *= max_height / height;
+						width = Math.round(width *= 1024 / height);
+						height = 1024;
+					}
+				}
+				// resize the canvas and draw the image data into it
+				canvas.width = width;
+				canvas.height = height;
+				var ctx = canvas.getContext("2d");
+				ctx.drawImage(img, 0, 0, width, height);
+				//preview.appendChild(canvas); // do the actual resized preview
+				return canvas.toDataURL("image/jpg", 0.8); // get the data from canvas as 80% JPG (can be also PNG, etc.)
+			}
+
+
+			// function: is menu is open or closed
+			function MenuToggler() {
+				if ($('#navWrapper').hasClass('open')) {
+					closeNav()
+				} else {
+					openNav()
+				}
+			}
+
+			//JQuery navigation show-hide functions
+			function openNav() {
+				//move ContainerContent with css-translate
+				$('#ContainerContent').css({
+					'transform': 'translate3d(300px,0,0)'
+				});
+
+				// add class open & set visible
+				$('#navWrapper').addClass('open')
+						.css({
+							'visibility': 'visible'
+						});
+
+				// open the navigation content
+				$('#navContent').delay(500).css({
+					'opacity': '1',
+					'transform': "translate3d(0,0,0)"
+				});
+				//console.log('open Nav finished');
+			};
+
+			function closeNav() {
+
+				// fade back and CLOSING Menu bar
+				$('#navContent').css({
+					'opacity': '0.6',
+					'transform': "scale(0.6) translate3d(0,0,0)"
+				}, 200);
+
+				// navWrapper: set visibility hidden after delay-function
+				$('#navWrapper').delay(351)
+						.queue(function (next) {
+							$(this).css({
+								'visibility': 'hidden'
+							});
+							next()
+						});
+
+				//remove class open
+				$('#navWrapper').removeClass('open');
+				//console.log('closeNav finished');
+
+				// move back ContainerContent
+				$('#ContainerContent').delay(550)
+						.queue(function (closeCC) {
+							$(this).css({
+								'transform': 'translate3d(0,0,0)'
+							});
+							closeCC()
+						});
+
+
+			};
+
+
+			// function is ThemeToggler menu is open or closed ?
+			function ThemeToggler() {
+				if ($('#ContainerThemeToggler').hasClass('open')) {
+					closeTTmenu()
+				} else {
+					openTTmenu()
+				}
+			}
+
+
+			// function theme-Toggler open
+			function openTTmenu() {
+				// move main container to the left
+				$('#ContainerContent').css({
+					'transform': 'translate3d(-300px,0,0)'
+				}, 300);
+
+				// set Container TT to visible
+				$('#ContainerThemeToggler').css({
+					'visibility': 'visible'
+					//add class to container
+				}).addClass('open');
+
+				// animate and show menu
+				$('#ttwrapper').delay(1000).css({
+					'margin-top': '0',
+					'opacity': '1'
+				}, 1200);
+
+			};
+
+			//function theme Toggler close
+			function closeTTmenu() {
+				// animate and show menu
+				$('#ttwrapper').css({
+					'margin-top': '-300px',
+					'opacity': '0.4'
+				}, 200);
+
+				// set container TT to invisible -visible
+				$('#ContainerThemeToggler').css({
+					'visibility': 'hidden'
+					//remove class from container
+				}).removeClass('open');
+
+				// delayed continer move back into place
+				$('#ContainerContent').delay(500)
+						.queue(function (next) {
+							$(this).css({
+								'transform': 'translate3d(0,0,0)'
+							}, 250);
+							next()
+						});
+			}
+
+
+			// execute listGalleries
+			listGalleries();
+
+			function getModelFromServer() {
+				$.get('http://flx-media.ch/spa-api.cfm?callback=', function (data) {
+					//property gallery add and fill with callback from get-JSON request.
+					albums.gallery = JSON.parse(data);
+				})
+			}
+
+//			RenderTeasers();
+
+
+			// render Partial View Teasers
+			function renderTeaser() {
+				//1: renderView Content: Model(JSON Albums: gallery-Array), div-container
+
+				console.log(teasers);
+				renderView('teaserWrapper', teasers, 'teasercontainer');
+			}
+
+			// execute ListTeasers
+
+
+			function getTeasersFromServer() {
+				$.get('http://flx-media.ch/spa-api-tea.cfm?callback=', function (datateaser) {
+					// property teasers from JSON teasers
+					teasers.singleentry = JSON.parse(datateaser);
+//					console.log(teasers.singleentry);//					renderTeaser();
+				})
+			}
+
+			// init function - do this once
+			var init = function () {
+				// get all pages from server before
+//				$.get('http://flx-media.ch/spa-api-pages.cfm?callback=', function (data) {
+//					alert(1);
+//					console.log(data);
+//					pages = data;
+					// function get data model form server (albums json object)
+					getModelFromServer()
+					// function to get teasers from server
+					getTeasersFromServer()
+					// do  initial tasks and do it with variable actPageIDX (declared start page = 0)
+					changePage(actPageIdx)
+					// render Menu and attach events
+					//One-timer: if content of containerNav == empty.. (Only true on PAGELOAD )
+					createMenu()
+					// includeTitleBar
+					includeTitleBar()
+					// include Footer
+					includeFooter()
+					// include ThemeToggler
+					includeThemeToggler()
+					// attach menuToggler to MenuBar link
+					attachMenuToggler()
+					// attach ThemeToggler to MenuBar link
+					attachThemeToggler()
+					// attach ThemeChooserEvent
+					attachThemeChooserEvent()
+
+					// hide splash after 2 sec
+					setTimeout(function () {
+						$('#splash').fadeOut(200, function () {
+							$('#splash').remove()
+						});
+					}, 500)
+//				});
+			}
+
+			// return instance RETURN OBJECT an expose PUBLIC methods
+			// 1. Name der private Function (nach der instanzierung)
+			// 2. Name der Public Function
+			return {
+				changePage: changePage,
+				init: init
+
+			} // return the instantiated app-object
+		}
+
+
+
+
+
+		// init app
+		$(document).ready(function(){
+			// make a new instance ob the object "app()"
+			var application = app()	//OOP:  instance is javascript CLASS (analog JAVA in abgrenzung zu einer funktion)
+			// start app
+			application.init()
+
+			// try a private method (throws an error)
+			//console.log(renderView('navig',pages,'ContainerNav'))
+		})
+
+</script>
+	<!-- load splash animation when dom is rendered -->
+	<script src="../js/TweenMax.min.js"></script>
+	<script src="../js/splashanimation.js"></script>
+</body>
+
+
+</html>
