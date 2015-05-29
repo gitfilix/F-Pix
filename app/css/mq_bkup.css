@@ -1,0 +1,824 @@
+/*----------   mq's ------------*/
+/*too small device */
+@media (min-width: 250px) {
+    .title-gal:after{
+        content: "much too small, kolleg!";
+    }
+
+    .menubar h1{
+        font-size: 1rem;
+        line-height: 1rem;
+        /*color: red;*/
+        margin-bottom: 0;
+    }
+
+    .title-gal{
+        width: 30%;
+    }
+
+    #ContainerContent{
+        display: block;
+        /*no footer*/
+        padding-bottom:0px;
+    }
+
+    #ContainerFooter{
+        visibility: hidden;
+    }
+
+}
+/* MQ Phone Portrait-------------------------------------- */
+@media  (min-width: 320px) and (orientation:  portrait ) {
+
+    .title-gal{
+        width: 30%;
+    }
+
+    .title-gal:after{
+        content: "phone portrait";
+        font-size: 0.6rem;
+
+    }
+
+
+    #ContainerContent{
+        display: block;
+        /*no footer*/
+        padding-bottom:0px;
+    }
+
+    .title-gal h1{
+        /*color: aqua;*/
+        font-size: 0.8rem;
+        line-height: 1rem;
+        margin-bottom:0;
+    }
+
+
+    /*--Splash Screen --*/
+    /*------------------*/
+    .splash-content{
+        position: absolute;
+        left: 50%;
+        top: 35%;
+    }
+
+    .splash-content h1 {
+        font-size: 4rem;
+    }
+
+    .splash-content h2{
+        font-size: 0.9rem;
+        letter-spacing: 2px;
+        margin-top: -16px;
+    }
+
+    .splash-content h3 {
+       padding-top: 30px;
+       font-size: 1rem;
+    }
+
+    /*--  Start View  --*/
+    /*------------------*/
+    .center{
+        width: 100%;
+        top: 43%;
+    }
+
+    .center h1{
+        letter-spacing: 0.2rem;
+        font-size: 2rem;
+        margin-top: 2rem;
+        margin-bottom: 0.5em;
+        line-height: 2rem;
+    }
+
+    .center h2{
+        font-size: 1.4rem;
+        margin-right: 1em;
+        padding: 1em;
+    }
+
+    /*-- Nav Menu View--*/
+    /*------------------*/
+    .menu-list{
+        font-family: "Raleway", Helvetica, Arial, sans-serif;
+        font-size: 1rem;
+        letter-spacing: 1px;
+    }
+
+
+    .menu-list li a{
+        display: block;
+        padding: 1em 1em 1em 1em;
+    }
+
+    /*--TTToggler Menu--*/
+    /*------------------*/
+    .tttitle h2{
+        margin-top: 1rem;
+        padding-top: 0.5rem;
+        padding-bottom: 1rem;
+        margin-left: 1rem;
+    }
+
+    .ttmenu ul li a{
+        display: block;
+        padding: 1em 1em 1em 1em;
+    }
+
+    /*--Content Article--*/
+    /*-------------------*/
+
+    .two-thirds.column{
+        width: 100%;
+    }
+
+
+    .articleDefault h2{
+        padding-top: 1em;
+        text-align: right;
+        font-size: 2rem;
+        padding-right: 1rem;
+    }
+
+    .articleDefault h3{
+        padding-top: 1em;
+        font-size:1.6rem;
+        padding-left: 1em;
+    }
+
+    .articleDefault h4{
+        font-size: 1.2rem;
+        padding-bottom: 0.5rem;
+        padding-top: 0.2rem;
+        padding-left: 1em;
+    }
+
+    .articleDefault p{
+        padding-right:1em;
+        padding-left: 1em;
+        font-size: 1.2rem;
+        line-height: 1.6rem;
+    }
+
+    /*-- gallery Overview --*/
+    /*---------------------*/
+
+    #galleryOverviewContainer{
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    .theadalbum{
+        font-size: 1rem;
+    }
+
+
+    .listsinglealbum{
+        font-size: 1rem;
+    }
+
+    .listsinglealbum img{
+        max-width: 35px;
+        height: auto;
+    }
+
+    /*do not show 3rd coumn albumid*/
+    .listsinglealbum td:nth-child(3){
+        display: none;
+    }
+    /*do not show 4rd coumn albumid*/
+    .listsinglealbum td:nth-child(4){
+        display: none;
+    }
+
+    .theadalbum td:nth-child(2){
+        display:none;
+    }
+
+    .theadalbum td:nth-child(3){
+        display:none;
+    }
+
+
+    /*-- Details View  --*/
+    /*---------------------*/
+
+    .img-caption{
+        height: 20%;
+        bottom: 0;
+        width: 100%;
+    }
+
+    .img-caption h2{
+        padding-top: 2em;
+        /*color: #111;*/
+        text-align: left;
+        padding-left: 3em;
+        font-size: 3rem;
+        font-family: 'neuton', 'courier', serif;
+        float: left;
+    }
+
+    .img-caption-detail{
+        margin-top: 1em;
+        width: 45%;
+        padding-left: 1em;
+        padding-top: 1em;
+    }
+
+    .img-caption-detail p{
+        font-size: 1rem;
+    }
+
+    .close{
+        position:absolute;
+        min-width: 70px;
+        top:10px;
+        right:1em;
+    }
+
+    .info{
+        position:absolute;
+        min-width: 70px;
+        top:10px;
+        left:1em;
+    }
+
+
+
+    /*-- Upload Files    --*/
+    /*---------------------*/
+
+    .formstyle h3{
+        font-size: 1rem;
+        line-height: 1.2rem;
+        /*color: aqua;*/
+        font-weight: 200;
+        padding-top: 0.5em;
+    }
+
+    input, textarea, select, fieldset{
+        max-width: 70%;
+        margin-bottom: 0.5rem;
+    }
+
+
+    #previewUploadImages li{
+        padding-top: 20%;
+        width: 20%;
+        margin-right: 10px;
+    }
+
+    #footer{
+        display:none;
+    }
+
+    .teaser{
+        display: none;
+    }
+
+}
+
+
+/*------------------------ Phone landscape------------------------ */
+@media (min-width: 320px) and (orientation:  landscape ) {
+
+    .title-gal:after{
+        content: "phone landscape";
+    }
+    .title-gal{
+        width: 40%;
+    }
+    .title-gal h1{
+        /*color: #F3C113;*/
+    }
+
+
+
+    /*--Splash Screen --*/
+    /*------------------*/
+    .splash-content{
+        position: absolute;
+        left: 50%;
+        top: 40%;
+    }
+    .splash-content h3 {
+        padding-top: 40px;
+        font-size: 1rem;
+    }
+
+
+    /*--Start View    --*/
+    /*------------------*/
+    #ContainerContent{
+        display: block;
+        /*no footer*/
+        padding-bottom:0px;
+    }
+
+    .center{
+        top: 30%;
+    }
+
+    .center h1{
+        letter-spacing: 0.2rem;
+        font-size: 2rem;
+        margin-top: 1rem;
+        margin-bottom: 0.5em;
+        line-height: 2rem;
+    }
+
+    .center h2{
+        font-size: 1.2rem;
+        margin-right: 1em;
+        padding: 0.5em;
+    }
+
+    /*--Nav Menu View--*/
+    /*------------------*/
+    .menu-list{
+        font-size: 0.8rem;
+        letter-spacing: 1px;
+    }
+
+    .menu-list li a{
+        display: block;
+        padding: 1rem 0.5rem 1rem 0.5rem;
+    }
+    /*--TTToggler Menu--*/
+    /*------------------*/
+    .ttmenu{
+        background: #222;
+        font-size: 0.8rem;
+    }
+
+    /*--Content Article--*/
+    /*-------------------*/
+    .two-thirds.column{
+        width: 100%;
+    }
+
+    .articleDefault{
+        margin-left: 0;
+    }
+
+    .articleDefault h2{
+        font-size:2.2rem;
+    }
+
+    /*-- gallery Overview --*/
+    /*----------------------*/
+
+    #galleryOverviewContainer{
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    .theadalbum{
+        font-size: 1rem;
+    }
+
+    .listsinglealbum{
+        font-size: 1rem;
+    }
+
+    .listsinglealbum img{
+        max-width: 35px;
+        height: auto;
+    }
+
+    /*do not show 3rd coumn albumid*/
+    .listsinglealbum td:nth-child(3){
+        display: none;
+    }
+    /*do not show 4rd coumn albumid*/
+    .listsinglealbum td:nth-child(4){
+        display: none;
+    }
+
+    .theadalbum td:nth-child(2){
+        display:none;
+    }
+
+    .theadalbum td:nth-child(3){
+        display:none;
+    }
+
+    /*--- Details View  ---*/
+    /*---------------------*/
+
+    .img-caption{
+        height: 20%;
+        bottom: 0;
+        width: 100%;
+    }
+
+    .img-caption h2{
+        padding-top: 2em;
+        text-align: left;
+        padding-left: 3em;
+        font-size: 3rem;
+        float: left;
+    }
+
+    .img-caption-detail{
+        margin-top: 1em;
+        width: 45%;
+        padding-left: 1em;
+        padding-top: 1em;
+    }
+
+    .img-caption-detail p{
+        font-size: 1rem;
+    }
+
+    .close{
+        position:absolute;
+        min-width: 70px;
+        top:10px;
+        right:1em;
+    }
+
+    .info{
+        position:absolute;
+        min-width: 70px;
+        top:10px;
+        left:1em;
+    }
+
+
+    /*-- Upload Files    --*/
+    /*---------------------*/
+    .formstyle h3{
+        font-size: 1rem;
+        line-height: 1.2rem;
+        /*color: aqua;*/
+        font-weight: 200;
+        padding-top: 0.5em;
+    }
+
+    input, textarea, select, fieldset{
+        max-width: 70%;
+        margin-bottom: 0.5rem;
+    }
+
+    #previewUploadImages li{
+        padding-top: 20%;
+        width: 20%;
+        margin-right: 10px;
+    }
+
+
+    .teaser{
+        display: none;
+    }
+
+
+    #ContainerFooter{
+        visibility: hidden;
+    }
+    #footer{
+        display:block;
+    }
+
+}
+
+
+
+/*-----------------------Tablet Portrait ---------------*/
+@media (min-width: 768px) and (orientation: portrait)  {
+    /*test*/
+    .title-gal h1{
+        /*color: #F7F653;*/
+        font-size: 1rem;
+        line-height: 1rem;
+    }
+    .title-gal:after{
+        content: "tablet portrait works";
+    }
+    .title-gal{
+        width: 45%;
+    }
+
+    #ContainerContent{
+        display: block;
+        padding-bottom:70px;
+    }
+
+    /*--Splash Screen --*/
+    /*------------------*/
+    .splash-content{
+        position: absolute;
+        left: 30%;
+        top:35%;
+    }
+
+    .splash-content h1 {
+        font-size: 6rem;
+    }
+
+    .splash-content h2{
+        font-size: 0.9rem;
+        letter-spacing: 2px;
+        margin-top: -16px;
+    }
+
+    .splash-content h3 {
+        padding-top: 30px;
+        font-size: 1rem;
+    }
+
+    /*--Start View    --*/
+    /*------------------*/
+    .center{
+        top: 50%;
+    }
+
+    .center h1{
+        letter-spacing: 0.2rem;
+        font-size: 3rem;
+        margin-top: 2rem;
+        margin-bottom: 1em;
+        line-height: 3rem;
+    }
+
+    .center h2{
+        font-size: 1.8rem;
+
+    }
+
+    /*--Nav Menu View--*/
+    /*-----------------*/
+
+
+
+    /*--TTToggler Menu--*/
+    /*------------------*/
+
+
+
+    /*--Content Article--*/
+    /*-------------------*/
+    .articleDefault h2{
+        font-size: 2.6rem;
+        padding-right: 1rem;
+    }
+
+    .articleDefault h3{
+        padding-top: 1em;
+        font-size:2rem;
+        padding-left: 1em;
+    }
+
+    .articleDefault h4{
+        font-size: 1.4rem;
+        padding-bottom: 0.5rem;
+        padding-top: 0.2rem;
+    }
+
+    .articleDefault p{
+        font-size: 1.4rem;
+        line-height:2rem;
+    }
+
+
+    /*-gallery Overview */
+    /*------------------*/
+    #galleryOverviewContainer{
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .theadalbum{
+        font-size: 1.6rem;
+    }
+
+    .listsinglealbum{
+        font-size: 1.2rem;
+        font-weight: 200;
+    }
+
+    .listsinglealbum img{
+        max-width: 55px;
+        height: auto;
+    }
+
+    /*do  show 3rd column albumid*/
+    .listsinglealbum td:nth-child(3){
+        display: block;
+    }
+
+    /*do  show 4rd column albumid*/
+    .listsinglealbum td:nth-child(4){
+        display: block;
+    }
+
+    .theadalbum td:nth-child(2){
+        display:block;
+    }
+
+    .theadalbum td:nth-child(3){
+        display:block;
+    }
+
+
+
+    /*-- Details View --*/
+    /*------------------*/
+
+
+    /*-- Upload Files --*/
+    /*------------------*/
+
+
+    /*-- Details View  -*/
+    /*------------------*/
+
+
+
+    #ContainerFooter{
+        visibility: visible;
+    }
+    #footer{
+        display:block;
+    }
+}
+
+/*-----------------------Tablet landscape ----*/
+@media (min-width : 768px) and (orientation : landscape) {
+    /*test*/
+
+    .title-gal h1{
+        /*color: greenyellow;*/
+        font-size: 1rem;
+        line-height: 1rem;
+    }
+    .title-gal:after{
+        content: "tablet landscape";
+    }
+
+    /*--Splash Screen --*/
+    /*------------------*/
+
+
+
+    /*--Nav Menu View--*/
+    /*-----------------*/
+
+
+
+    /*--TTToggler Menu--*/
+    /*------------------*/
+
+
+
+    /*--Content Article-*/
+    /*------------------*/
+
+
+
+
+    /*-gallery Overview */
+    /*------------------*/
+
+
+    /*-- Details View --*/
+    /*------------------*/
+
+
+    /*-- Upload Files --*/
+    /*------------------*/
+
+
+    /*-- Details View  -*/
+    /*------------------*/
+
+    #ContainerContent{
+        display: block;
+        padding-bottom:70px;
+    }
+
+    .two-thirds.column {
+        width: 65.3333333333%;
+    }
+
+    .teaser{
+        display: block;
+    }
+
+
+    #ContainerFooter{
+        visibility: visible;
+    }
+    #footer{
+        display:block;
+    }
+
+    .teaser{
+        display: none;
+    }
+
+    .theadalbum{
+        font-size: 1.8rem;
+    }
+
+    .listsinglealbum{
+        font-size: 1.6rem;
+        font-weight: 200;
+    }
+
+    .listsinglealbum img{
+        max-width: 50px;
+        height: auto;
+    }
+}
+
+
+
+/*---------------------- Desktop screen --------*/
+@media (min-width: 1050px) {
+    .title-gal:after{
+        content: "desktop"
+    }
+
+
+    #ContainerContent{
+    display: block;
+    }
+
+
+    /*test*/
+    .title-gal h1{
+    /*color:crimson;*/
+    font-size: 1rem;
+    line-height: 1rem;
+    }
+
+
+    /*--Splash Screen --*/
+    /*------------------*/
+
+
+
+    /*--Nav Menu View--*/
+    /*-----------------*/
+
+
+
+    /*--TTToggler Menu--*/
+    /*------------------*/
+
+
+
+    /*--Content Article--*/
+    /*-------------------*/
+
+
+
+
+    /*-gallery Overview */
+    /*------------------*/
+
+
+    /*-- Details View --*/
+    /*------------------*/
+
+
+    /*-- Upload Files --*/
+    /*------------------*/
+
+
+    /*-- Details View  -*/
+    /*------------------*/
+
+
+
+    /* display teasers on the right side */
+
+    .teaser{
+        display: block;
+
+    }
+    /* display footer on the bottom */
+
+    #ContainerFooter{
+        visibility: visible;
+    }
+    #footer{
+        display:block;
+    }
+
+
+    .listsinglealbum{
+        font-size: 1.6rem;
+    }
+
+    .listsinglealbum img{
+        max-width: 90px;
+        height: auto;
+    }
+
+}
+
+
