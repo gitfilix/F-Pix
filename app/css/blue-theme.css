@@ -210,7 +210,8 @@ body {
 
 .articleRight p {
   font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  color: #A2A2A2; }
+  color: #444444;
+  background: rgba(200, 200, 200, 0.8); }
 
 .articleLeft h3 {
   font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -222,7 +223,8 @@ body {
 
 .articleLeft p {
   font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  color: #A2A2A2; }
+  color: #444444;
+  background: rgba(200, 200, 200, 0.8); }
 
 .asidetext {
   background: rgba(200, 200, 200, 0.3); }

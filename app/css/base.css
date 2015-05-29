@@ -75,7 +75,6 @@ html, body {
   float: right; }
 
 .menubarlinks {
-  margin-left: 1em;
   margin-right: 1em;
   text-decoration: none;
   padding: 6px 10px 6px 10px;
@@ -101,11 +100,9 @@ html, body {
 
 .title-gal {
   float: left;
-  width: 40%;
   text-align: right; }
 
 .title-gal h1 {
-  font-size: 2.6rem;
   letter-spacing: 2px;
   line-height: 1.6rem;
   font-weight: 300; }
@@ -207,7 +204,6 @@ html, body {
           transition-timing-function: ease-out; }
 
 .menu-list {
-  font-size: 1.4rem;
   letter-spacing: 1px; }
 
 .menu-list ul {
@@ -290,20 +286,16 @@ html, body {
 .center {
   position: absolute;
   width: 100%;
-  top: 35%;
   text-align: center; }
 
 .center h1 {
-  font-size: 4rem;
   margin-top: 2rem;
   margin-bottom: 0.5em;
   line-height: 3rem;
   font-weight: 200; }
 
 .center h2 {
-  font-size: 2.4rem;
   text-align: right;
-  margin-right: 3em;
   padding: 1em;
   font-weight: 200;
   letter-spacing: 2px; }
@@ -500,8 +492,6 @@ html, body {
 .articleDefault h2 {
   padding-bottom: 1.6rem;
   text-align: right;
-  padding-right: 1rem;
-  font-size: 2.8rem;
   font-weight: 200;
   letter-spacing: 0.1rem; }
 
@@ -526,23 +516,20 @@ html, body {
 
 .articleDefault p {
   padding: 1rem 1rem 3rem 1rem;
-  font-size: 1rem;
-  line-height: 1.8rem;
   font-weight: 300; }
 
 /* ----Template:  Background in 2 Columns */
 .articleRight h3 {
   padding: 1rem 1rem 2rem 1rem;
-  font-size: 1.8rem;
-  line-height: 1.8rem;
   font-weight: 100; }
 
 .articleRight h4 {
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   line-height: 1.8rem;
   letter-spacing: 0.1rem;
-  padding: 1.6rem 0 0.3rem 1rem;
-  font-weight: 300; }
+  padding: 1.6rem 0 0.2rem 1rem;
+  font-weight: 300;
+  text-align: right; }
 
 .articleRight p {
   padding: 1rem 1rem 3rem 1rem;
@@ -552,23 +539,18 @@ html, body {
 
 .articleLeft h3 {
   padding: 1rem 1rem 2rem 1rem;
-  font-size: 1.8rem;
-  line-height: 1.8rem;
   font-weight: 300; }
 
 .articleLeft h4 {
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   line-height: 1.8rem;
   letter-spacing: 0.1rem;
-  padding-bottom: 0.2rem;
-  padding-top: 1.6rem;
-  padding-left: 1rem;
+  padding: 1.6rem 0 0.2rem 0;
   font-weight: 300; }
 
 .articleLeft p {
-  padding: 1rem 1rem 2rem 1rem;
-  font-size: 1rem;
-  line-height: 1.8rem;
+  padding: 2rem 1rem 2rem 1rem;
+  background: rgba(200, 200, 200, 0.8);
   font-weight: 300; }
 
 /* ------ Template BG-Prominent*/
