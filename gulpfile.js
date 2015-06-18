@@ -23,7 +23,7 @@ gulp.task('webserver', function(){
             // lifereload true
             livereload: true,
             directoryListing: false,
-            fallback: 'index7.html',
+            fallback: 'index8.html',
             open:true
         })
     );
@@ -63,7 +63,7 @@ gulp.task('sass-theme', function(){
         })
 
         // extend autoprefixer for the last 3 browser versions
-        .pipe(autoprefixer("last 3 version", "safari 5", "ie 9"))
+        //.pipe(autoprefixer("last 3 version", "safari 5", "ie 9"))
         // pipe it to css folder
         .pipe(gulp.dest('app/css/'));
     console.log('new Theme-css were written');
@@ -104,7 +104,7 @@ gulp.task('watch', function(){
     gulp.watch('app/scss/*.scss', ['sass']);
     gulp.watch('app/scss/themes/*.scss', ['sass-theme']);
 
-    //gulp.watch('app/scss/media-queries/*.scss', ['sass-mq']);
+    gulp.watch('app/scss/media-queries/*.scss', ['sass-mq']);
 })
 
 

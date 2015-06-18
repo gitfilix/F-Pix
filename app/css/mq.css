@@ -1,103 +1,116 @@
-.title-gal:after {
-  font-size: 10px;
-  color: #A3A; }
-  @media (max-width: 310px) {
-    .title-gal:after {
-      content: "much too small, kolleg!"; } }
-  @media (min-width: 320px) and (max-width: 767px) and (orientation: portrait) {
-    .title-gal:after {
-      content: "phone portrait"; } }
-  @media (min-width: 320px) and (max-width: 767px) and (orientation: landscape) {
-    .title-gal:after {
-      content: "phone landscape"; } }
-  @media (min-width: 768px) and (max-width: 1023px) and (orientation: portrait) {
-    .title-gal:after {
-      content: "Tablet hoch"; } }
-  @media (min-width: 768px) and (max-width: 1023px) and (orientation: landscape) {
-    .title-gal:after {
-      content: "Tablet quer";
-      color: #F3C113; } }
-  @media (min-width: 1024px) {
-    .title-gal:after {
-      content: "Desktop"; } }
-
 #ContainerContent {
   display: block;
-  padding-bottom: 0; }
+  padding-top: 50px; }
   @media (min-width: 320px) and (max-width: 767px) and (orientation: portrait) {
     #ContainerContent {
       padding-bottom: 0; } }
   @media (min-width: 320px) and (max-width: 767px) and (orientation: landscape) {
     #ContainerContent {
       padding-bottom: 0; } }
-  @media (min-width: 768px) and (max-width: 1023px) and (orientation: portrait) {
+  @media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
     #ContainerContent {
+      padding-top: 50px;
       padding-bottom: 0; } }
-  @media (min-width: 768px) and (max-width: 1023px) and (orientation: landscape) {
+  @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+    #ContainerContent {
+      padding-top: 50px;
+      padding-bottom: 70px; } }
+  @media (min-width: 1025px) {
     #ContainerContent {
       padding-bottom: 70px; } }
-  @media (min-width: 1024px) {
+  @media (min-width: 1800px) {
     #ContainerContent {
       padding-bottom: 70px; } }
 
 #ContainerFooter {
-  display: block; }
+  display: block;
+  height: 70px; }
   @media (min-width: 320px) and (max-width: 767px) and (orientation: portrait) {
     #ContainerFooter {
       visibility: hidden; } }
   @media (min-width: 320px) and (max-width: 767px) and (orientation: landscape) {
     #ContainerFooter {
       visibility: hidden; } }
-  @media (min-width: 768px) and (max-width: 1023px) and (orientation: portrait) {
+  @media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
     #ContainerFooter {
       visibility: hidden; } }
-  @media (min-width: 768px) and (max-width: 1023px) and (orientation: landscape) {
+  @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
     #ContainerFooter {
       visibility: visible; } }
-  @media (min-width: 1024px) {
+  @media (min-width: 1025px) {
+    #ContainerFooter {
+      visibility: visible; } }
+  @media (min-width: 1800px) {
     #ContainerFooter {
       visibility: visible; } }
 
-@media (min-width: 320px) and (max-width: 767px) and (orientation: portrait) {
-  .title-gal {
-    width: 35%; } }
-
-@media (min-width: 320px) and (max-width: 767px) and (orientation: landscape) {
-  .title-gal {
-    width: 40%; } }
-
-@media (min-width: 768px) and (max-width: 1023px) and (orientation: portrait) {
-  .title-gal {
-    width: 40%; } }
-
-@media (min-width: 768px) and (max-width: 1023px) and (orientation: landscape) {
-  .title-gal {
-    width: 45%; } }
-
-@media (min-width: 1024px) {
-  .title-gal {
-    width: 47%; } }
+.title-gal {
+  width: 20%; }
+  @media (min-width: 320px) and (max-width: 767px) and (orientation: portrait) {
+    .title-gal {
+      width: 43%; } }
+  @media (min-width: 320px) and (max-width: 767px) and (orientation: landscape) {
+    .title-gal {
+      width: 40%; } }
+  @media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+    .title-gal {
+      width: 40%; } }
+  @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+    .title-gal {
+      width: 45%; } }
+  @media (min-width: 1025px) {
+    .title-gal {
+      width: 47%; } }
 
 .title-gal h1 {
-  font-size: 1rem; }
+  font-size: 1rem;
+  white-space: nowrap;
+  display: inline-block; }
   @media (max-width: 310px) {
     .title-gal h1 {
-      font-size: 0.5rem; } }
+      background: #F33 !important;
+      font-size: 0.5rem;
+      content: "much too small, kolleg!"; } }
   @media (min-width: 320px) and (max-width: 767px) and (orientation: portrait) {
     .title-gal h1 {
-      font-size: 1rem; } }
+      padding-top: 0.3rem;
+      font-size: 1.15rem;
+      line-height: 1.1rem; } }
   @media (min-width: 320px) and (max-width: 767px) and (orientation: landscape) {
     .title-gal h1 {
-      font-size: 1.1rem; } }
-  @media (min-width: 768px) and (max-width: 1023px) and (orientation: portrait) {
+      padding-top: 0.3rem;
+      font-size: 1.15rem;
+      line-height: 1.5rem; } }
+  @media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
     .title-gal h1 {
-      font-size: 1.6rem; } }
-  @media (min-width: 768px) and (max-width: 1023px) and (orientation: landscape) {
+      padding-top: 0.15rem;
+      font-size: 1.6rem;
+      line-height: 1.6rem; } }
+  @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
     .title-gal h1 {
-      font-size: 1.6rem; } }
-  @media (min-width: 1024px) {
+      padding-top: 0.15rem;
+      font-size: 1.6rem;
+      line-height: 1.6rem; } }
+  @media (min-width: 1025px) {
     .title-gal h1 {
-      font-size: 2.2rem; } }
+      font-size: 1.8rem;
+      line-height: 1.8rem; } }
+  @media (min-width: 1800px) {
+    .title-gal h1 {
+      font-size: 1.8rem;
+      line-height: 1.8rem; } }
+
+#BtnThemeChange {
+  margin-right: 1rem; }
+  @media (min-width: 320px) and (max-width: 767px) and (orientation: portrait) {
+    #BtnThemeChange {
+      margin-right: 0.7rem; } }
+
+#BtnMenuToggler {
+  margin-left: 1rem; }
+  @media (min-width: 320px) and (max-width: 767px) and (orientation: portrait) {
+    #BtnMenuToggler {
+      margin-left: 0.7rem; } }
 
 .splash-content {
   left: 50%;
@@ -119,7 +132,7 @@
   @media (min-width: 320px) and (max-width: 767px) and (orientation: landscape) {
     .splash-content h1 {
       font-size: 3rem; } }
-  @media (min-width: 1024px) {
+  @media (min-width: 1025px) {
     .splash-content h1 {
       font-size: 6rem; } }
 
@@ -135,15 +148,15 @@
     .splash-content h2 {
       margin-top: -11px;
       font-size: 0.8rem; } }
-  @media (min-width: 768px) and (max-width: 1023px) and (orientation: portrait) {
+  @media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
     .splash-content h2 {
       margin-top: -12px;
       font-size: 0.9rem; } }
-  @media (min-width: 768px) and (max-width: 1023px) and (orientation: landscape) {
+  @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
     .splash-content h2 {
       margin-top: -12px;
       font-size: 0.9rem; } }
-  @media (min-width: 1024px) {
+  @media (min-width: 1025px) {
     .splash-content h2 {
       margin-top: -18px;
       font-size: 1rem; } }
@@ -159,15 +172,15 @@
     .splash-content h3 {
       padding-top: 40px;
       font-size: 1rem; } }
-  @media (min-width: 768px) and (max-width: 1023px) and (orientation: portrait) {
+  @media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
     .splash-content h3 {
       padding-top: 60px;
       font-size: 1rem; } }
-  @media (min-width: 768px) and (max-width: 1023px) and (orientation: landscape) {
+  @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
     .splash-content h3 {
       padding-top: 30px;
       font-size: 1rem; } }
-  @media (min-width: 1024px) {
+  @media (min-width: 1025px) {
     .splash-content h3 {
       padding-top: 40px;
       font-size: 1.6rem; } }
@@ -180,13 +193,13 @@
   @media (min-width: 320px) and (max-width: 767px) and (orientation: landscape) {
     .center {
       top: 30%; } }
-  @media (min-width: 768px) and (max-width: 1023px) and (orientation: portrait) {
+  @media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
     .center {
       top: 40%; } }
-  @media (min-width: 768px) and (max-width: 1023px) and (orientation: landscape) {
+  @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
     .center {
       top: 45%; } }
-  @media (min-width: 1024px) {
+  @media (min-width: 1025px) {
     .center {
       top: 45%; } }
 
@@ -198,13 +211,13 @@
   @media (min-width: 320px) and (max-width: 767px) and (orientation: landscape) {
     .center h1 {
       font-size: 2rem; } }
-  @media (min-width: 768px) and (max-width: 1023px) and (orientation: portrait) {
+  @media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
     .center h1 {
       font-size: 2.8rem; } }
-  @media (min-width: 768px) and (max-width: 1023px) and (orientation: landscape) {
+  @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
     .center h1 {
       font-size: 2.8rem; } }
-  @media (min-width: 1024px) {
+  @media (min-width: 1025px) {
     .center h1 {
       font-size: 4.4rem; } }
 
@@ -217,15 +230,15 @@
   @media (min-width: 320px) and (max-width: 767px) and (orientation: landscape) {
     .center h2 {
       font-size: 1rem; } }
-  @media (min-width: 768px) and (max-width: 1023px) and (orientation: portrait) {
+  @media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
     .center h2 {
       font-size: 1.2rem;
       margin-right: 8rem; } }
-  @media (min-width: 768px) and (max-width: 1023px) and (orientation: landscape) {
+  @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
     .center h2 {
       font-size: 1.2rem;
       margin-right: 8rem; } }
-  @media (min-width: 1024px) {
+  @media (min-width: 1025px) {
     .center h2 {
       font-size: 1.8rem;
       margin-right: 10rem; } }
@@ -238,15 +251,15 @@
   .menu-list {
     font-size: 0.8rem; } }
 
-@media (min-width: 768px) and (max-width: 1023px) and (orientation: portrait) {
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
   .menu-list {
-    font-size: 1.2rem; } }
+    font-size: 1rem; } }
 
-@media (min-width: 768px) and (max-width: 1023px) and (orientation: landscape) {
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
   .menu-list {
-    font-size: 1.2rem; } }
+    font-size: 1.1rem; } }
 
-@media (min-width: 1024px) {
+@media (min-width: 1025px) {
   .menu-list {
     font-size: 1rem; } }
 
@@ -258,15 +271,15 @@
   .ttmenu {
     font-size: 0.8rem; } }
 
-@media (min-width: 768px) and (max-width: 1023px) and (orientation: portrait) {
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
   .ttmenu {
     font-size: 1.2rem; } }
 
-@media (min-width: 768px) and (max-width: 1023px) and (orientation: landscape) {
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
   .ttmenu {
     font-size: 1.2rem; } }
 
-@media (min-width: 1024px) {
+@media (min-width: 1025px) {
   .ttmenu {
     font-size: 1rem; } }
 
@@ -278,27 +291,33 @@
   @media (min-width: 320px) and (max-width: 767px) and (orientation: landscape) {
     .two-thirds.column {
       width: 100%; } }
-  @media (min-width: 768px) and (max-width: 1023px) and (orientation: portrait) {
+  @media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
     .two-thirds.column {
       width: 100%; } }
-  @media (min-width: 768px) and (max-width: 1023px) and (orientation: landscape) {
+  @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
     .two-thirds.column {
       width: 65.3333333333%; } }
-  @media (min-width: 1024px) {
+  @media (min-width: 1025px) {
     .two-thirds.column {
       width: 65.3333333333%; } }
 
 .teaser {
   display: none; }
-  @media (min-width: 768px) and (max-width: 1023px) and (orientation: portrait) {
+  @media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
     .teaser {
       display: none; } }
-  @media (min-width: 768px) and (max-width: 1023px) and (orientation: landscape) {
+  @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
     .teaser {
       display: block; } }
-  @media (min-width: 1024px) {
+  @media (min-width: 1025px) {
     .teaser {
       display: block; } }
+  @media (min-width: 1800px) {
+    .teaser {
+      display: block; } }
+
+.caption p {
+  font-size: 0.9rem; }
 
 .articleDefault h2 {
   font-size: 2.6rem;
@@ -311,19 +330,68 @@
     .articleDefault h2 {
       font-size: 2rem;
       padding-right: 0.5rem; } }
-  @media (min-width: 768px) and (max-width: 1023px) and (orientation: portrait) {
+  @media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
     .articleDefault h2 {
       font-size: 2.8rem;
       padding-right: 0.5rem; } }
-  @media (min-width: 768px) and (max-width: 1023px) and (orientation: landscape) {
+  @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
     .articleDefault h2 {
       font-size: 2.6rem;
       padding-right: 0.5rem; } }
-  @media (min-width: 1024px) {
+  @media (min-width: 1025px) {
     .articleDefault h2 {
-      padding-top: 3rem;
+      padding-top: 4.4rem;
       font-size: 3.4rem;
       padding-right: 0; } }
+
+.articleDefault h3 {
+  text-align: right;
+  letter-spacing: 0.1rem;
+  font-weight: 300; }
+  @media (min-width: 320px) and (max-width: 767px) and (orientation: portrait) {
+    .articleDefault h3 {
+      font-size: 1.8rem;
+      padding-bottom: 1.2rem; } }
+  @media (min-width: 320px) and (max-width: 767px) and (orientation: landscape) {
+    .articleDefault h3 {
+      font-size: 1.8rem;
+      padding-bottom: 1.2rem; } }
+  @media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+    .articleDefault h3 {
+      font-size: 1.8rem;
+      padding-bottom: 1.6rem; } }
+  @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+    .articleDefault h3 {
+      font-size: 1.8rem;
+      padding-bottom: 1.6rem; } }
+  @media (min-width: 1025px) {
+    .articleDefault h3 {
+      padding-top: 0.6rem;
+      font-size: 1.8rem;
+      padding-bottom: 1.6rem; } }
+  @media (min-width: 1800px) {
+    .articleDefault h3 {
+      padding-top: 0.6rem;
+      padding-bottom: 1.6rem;
+      font-size: 2.2rem;
+      letter-spacing: 0.2rem;
+      padding-right: 0; } }
+
+.articleDefault h4 {
+  font-size: 1.2rem;
+  line-height: 1.8rem;
+  padding-top: 1.6rem; }
+  @media (min-width: 320px) and (max-width: 767px) and (orientation: portrait) {
+    .articleDefault h4 {
+      font-size: 1.2rem;
+      line-height: 2.8rem;
+      padding-top: 1rem; } }
+  @media (min-width: 1025px) {
+    .articleDefault h4 {
+      font-size: 1.4rem; } }
+  @media (min-width: 1800px) {
+    .articleDefault h4 {
+      font-size: 1.6rem; } }
 
 .articleDefault p {
   font-size: 1.4rem;
@@ -336,37 +404,324 @@
     .articleDefault p {
       font-size: 1.3rem;
       line-height: 1.8rem; } }
-  @media (min-width: 768px) and (max-width: 1023px) and (orientation: portrait) {
+  @media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
     .articleDefault p {
       font-size: 1.4rem;
       line-height: 2rem; } }
-  @media (min-width: 768px) and (max-width: 1023px) and (orientation: landscape) {
+  @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
     .articleDefault p {
       font-size: 1.4rem;
       line-height: 2rem; } }
-  @media (min-width: 1024px) {
+  @media (min-width: 1025px) {
     .articleDefault p {
-      font-size: 1.4rem;
+      font-size: 1.3rem;
       line-height: 2.2rem; } }
+  @media (min-width: 1800px) {
+    .articleDefault p {
+      font-size: 1.3rem;
+      line-height: 2.4rem; } }
 
-.articleRight, .articleLeft h3 {
-  font-size: 1.8rem;
-  line-height: 1.8rem;
+/* -------------Template:  TextTwoCols ---*/
+.articleRight h3, .articleLeft h3 {
+  font-size: 1.6rem;
+  line-height: 1.4rem;
   font-weight: 300; }
-  @media (min-width: 1024px) {
-    .articleRight, .articleLeft h3 {
-      font-size: 2.6rem;
+  @media (min-width: 1025px) {
+    .articleRight h3, .articleLeft h3 {
+      font-size: 1.8rem;
+      letter-spacing: 0.05rem;
       line-height: 1.8rem;
       font-weight: 100; } }
-
-.articleLeft, .articleRight p {
-  font-size: 1rem;
-  line-height: 1.8rem;
-  font-weight: 300; }
-  @media (min-width: 1024px) {
-    .articleLeft, .articleRight p {
-      font-size: 1.6rem;
-      line-height: 2.6rem;
+  @media (min-width: 1800px) {
+    .articleRight h3, .articleLeft h3 {
+      font-size: 2.4rem;
+      line-height: 2.4rem;
       font-weight: 100; } }
 
+.articleLeft p, .articleRight p {
+  font-size: 1.2rem;
+  line-height: 1.8rem;
+  font-weight: 300; }
+  @media (min-width: 1025px) {
+    .articleLeft p, .articleRight p {
+      font-size: 1.3rem;
+      line-height: 1.9rem;
+      font-weight: 400; } }
+  @media (min-width: 1800px) {
+    .articleLeft p, .articleRight p {
+      font-size: 1.4rem;
+      line-height: 2.4rem;
+      font-weight: 400; } }
+
+.asidetext h2 {
+  font-size: 1.6rem;
+  letter-spacing: 0.1rem; }
+
+.asidetext h3 {
+  font-size: 1rem;
+  letter-spacing: 0.1rem;
+  font-weight: 400; }
+  @media (min-width: 1025px) {
+    .asidetext h3 {
+      font-size: 1.3rem; } }
+  @media (min-width: 1800px) {
+    .asidetext h3 {
+      font-size: 1.3rem;
+      font-weight: 200; } }
+
+.asidetext p {
+  font-size: 1rem;
+  line-height: 1.6rem; }
+  @media (min-width: 320px) and (max-width: 767px) and (orientation: portrait) {
+    .asidetext p {
+      font-size: 1.2rem; } }
+  @media (min-width: 320px) and (max-width: 767px) and (orientation: landscape) {
+    .asidetext p {
+      font-size: 1.2rem; } }
+  @media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+    .asidetext p {
+      font-size: 1.2rem; } }
+  @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+    .asidetext p {
+      font-size: 1.2rem; } }
+  @media (min-width: 1025px) {
+    .asidetext p {
+      font-size: 1.1rem;
+      line-height: 1.7rem; } }
+  @media (min-width: 1800px) {
+    .asidetext p {
+      font-size: 1.4rem;
+      line-height: 2rem; } }
+
+@media (min-width: 320px) and (max-width: 767px) and (orientation: portrait) {
+  .theadalbum td:nth-child(2) {
+    display: none; } }
+
+@media (min-width: 320px) and (max-width: 767px) and (orientation: landscape) {
+  .theadalbum td:nth-child(2) {
+    display: none; } }
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+  .theadalbum td:nth-child(2) {
+    display: none; } }
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+  .theadalbum td:nth-child(2) {
+    display: block; } }
+
+@media (min-width: 1025px) {
+  .theadalbum td:nth-child(2) {
+    display: block; } }
+
+.listsinglealbum {
+  font-size: 1rem;
+  letter-spacing: 0.1rem;
+  font-weight: 300; }
+  @media (min-width: 320px) and (max-width: 767px) and (orientation: portrait) {
+    .listsinglealbum {
+      font-size: 1rem;
+      font-weight: 400; } }
+  @media (min-width: 320px) and (max-width: 767px) and (orientation: landscape) {
+    .listsinglealbum {
+      font-size: 1.2rem; } }
+  @media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+    .listsinglealbum {
+      font-size: 1.4rem; } }
+  @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+    .listsinglealbum {
+      font-size: 1.4rem; } }
+  @media (min-width: 1025px) {
+    .listsinglealbum {
+      font-size: 1.6rem;
+      font-weight: 100; } }
+  @media (min-width: 1800px) {
+    .listsinglealbum {
+      font-size: 2rem;
+      font-weight: 100; } }
+
+@media (min-width: 320px) and (max-width: 767px) and (orientation: portrait) {
+  .listsinglealbum td:nth-child(3) {
+    display: none; } }
+
+@media (min-width: 320px) and (max-width: 767px) and (orientation: landscape) {
+  .listsinglealbum td:nth-child(3) {
+    display: none; } }
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+  .listsinglealbum td:nth-child(3) {
+    display: none; } }
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+  .listsinglealbum td:nth-child(3) {
+    display: table-cell; } }
+
+@media (min-width: 1025px) {
+  .listsinglealbum td:nth-child(3) {
+    display: table-cell; } }
+
+@media (min-width: 320px) and (max-width: 767px) and (orientation: portrait) {
+  .imgfader {
+    width: 50px; } }
+
+@media (min-width: 320px) and (max-width: 767px) and (orientation: landscape) {
+  .imgfader {
+    width: 50px; } }
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+  .imgfader {
+    width: 100px; } }
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+  .imgfader {
+    width: 100px; } }
+
+@media (min-width: 1025px) {
+  .imgfader {
+    width: 120px; } }
+
+@media (min-width: 320px) and (max-width: 767px) and (orientation: portrait) {
+  .listsinglealbum img {
+    max-width: 50px; } }
+
+@media (min-width: 320px) and (max-width: 767px) and (orientation: landscape) {
+  .listsinglealbum img {
+    max-width: 50px; } }
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+  .listsinglealbum img {
+    max-width: 100px; } }
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+  .listsinglealbum img {
+    max-width: 100px; } }
+
+@media (min-width: 1025px) {
+  .listsinglealbum img {
+    max-width: 120px; } }
+
+@media (min-width: 320px) and (max-width: 767px) and (orientation: portrait) {
+  .swiper-button-prev, .swiper-button-next {
+    display: none; } }
+
+@media (min-width: 320px) and (max-width: 767px) and (orientation: landscape) {
+  .swiper-button-prev, .swiper-button-next {
+    display: none; } }
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+  .swiper-button-prev, .swiper-button-next {
+    display: none; } }
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+  .swiper-button-prev, .swiper-button-next {
+    display: none; } }
+
+@media (min-width: 1025px) {
+  .swiper-button-prev, .swiper-button-next {
+    display: inline;
+    width: 5rem; } }
+
+@media (min-width: 1800px) {
+  .swiper-button-prev, .swiper-button-next {
+    display: inline;
+    font-size: 1.5rem;
+    width: 5.5rem; } }
+
+.uploaderTitle h2 {
+  font-size: 2.6rem;
+  padding-right: 1rem;
+  letter-spacing: 0.1rem;
+  font-weight: 100; }
+  @media (min-width: 320px) and (max-width: 767px) and (orientation: portrait) {
+    .uploaderTitle h2 {
+      font-size: 2rem;
+      padding-right: 0.5rem; } }
+  @media (min-width: 320px) and (max-width: 767px) and (orientation: landscape) {
+    .uploaderTitle h2 {
+      font-size: 2rem;
+      padding-right: 0.5rem; } }
+  @media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+    .uploaderTitle h2 {
+      font-size: 2.8rem;
+      padding-right: 0.5rem; } }
+  @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+    .uploaderTitle h2 {
+      font-size: 2.6rem;
+      padding-right: 0.5rem; } }
+  @media (min-width: 1025px) {
+    .uploaderTitle h2 {
+      padding-top: 2rem;
+      font-size: 3.4rem;
+      padding-right: 1rem; } }
+  @media (min-width: 1800px) {
+    .uploaderTitle h2 {
+      padding-top: 2rem;
+      font-size: 4rem;
+      padding-right: 1rem; } }
+
+.formstyle input, select {
+  width: 80%;
+  height: 2.4rem; }
+  @media (min-width: 320px) and (max-width: 767px) and (orientation: portrait) {
+    .formstyle input, select {
+      height: 3rem; } }
+  @media (min-width: 320px) and (max-width: 767px) and (orientation: landscape) {
+    .formstyle input, select {
+      height: 3rem; } }
+  @media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+    .formstyle input, select {
+      height: 2.6rem; } }
+  @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+    .formstyle input, select {
+      height: 2.6rem; } }
+  @media (min-width: 1025px) {
+    .formstyle input, select {
+      height: 3rem; } }
+
+@media (min-width: 320px) and (max-width: 767px) and (orientation: portrait) {
+  .formstyle h3 {
+    font-size: 1.2rem;
+    padding-top: 0.5rem;
+    padding-bottom: 1rem; } }
+
+@media (min-width: 320px) and (max-width: 767px) and (orientation: landscape) {
+  .formstyle h3 {
+    font-size: 1.2rem;
+    padding-top: 0.5rem;
+    padding-bottom: 1rem; } }
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+  .formstyle h3 {
+    font-size: 1.2rem;
+    padding-top: 0.5rem;
+    padding-bottom: 1rem; } }
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+  .formstyle h3 {
+    font-size: 1.5rem;
+    padding-top: 0.5rem;
+    padding-bottom: 1rem; } }
+
+@media (min-width: 1025px) {
+  .formstyle h3 {
+    font-size: 1.6rem;
+    line-height: 1.2rem;
+    padding-top: 1.2rem;
+    padding-bottom: 1rem; } }
+
+@media (min-width: 1800px) {
+  .formstyle h3 {
+    font-size: 1.8rem;
+    line-height: 1.2rem;
+    padding-top: 1rem;
+    padding-bottom: 1.4rem; } }
+
 /*---*/
+.footerfeedback {
+  display: none;
+  color: #D3D3D3;
+  letter-spacing: 0.1rem; }
+  @media (min-width: 1800px) {
+    .footerfeedback {
+      font-size: 0.8rem;
+      line-height: 1rem;
+      display: block; } }

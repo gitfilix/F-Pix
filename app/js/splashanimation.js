@@ -1,16 +1,17 @@
-// Script for preloader splash animation anonymous function
+// Script for preloader splash animation
+// immediately invoked function expression: it is an IFEE
 	(function() {
 		var container = document.getElementById('container');
 		var boxLoader = document.getElementById('boxLoader');
 		var box = document.getElementById('box');
-
+		// positioning will be correted or overwrited in mq-file if necessary
 		TweenMax.set([boxLoader], {
 			position: 'absolute',
 			top: '66%',
 			left: '50%',
 			xPercent: -50,
 			yPercent: -50
-		})
+		});
 
 		TweenMax.set([container], {
 			position: 'absolute',
@@ -18,13 +19,13 @@
 			left: '50%',
 			xPercent: -50,
 			yPercent: -50
-		})
-
+		});
+		// animate the box
 		var tl = new TimelineMax({
 			repeat: -1
 		});
 
-		tl.timeScale(1.3)
+		tl.timeScale(1.3);
 		
 		tl.set(boxLoader, {
 			transformOrigin: '0% 100%'

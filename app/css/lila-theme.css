@@ -3,19 +3,19 @@ body {
   font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif; }
 
 ::-webkit-scrollbar-track {
-  background: #292929; }
+  background: #0F0202; }
 
 ::-webkit-scrollbar-thumb {
-  background: #00b2b2; }
+  background: #26041D; }
 
 .container {
-  background: #333333; }
+  background: #222222; }
 
 #ContainerMenuBar {
-  color: #56fdff; }
+  color: #714172; }
 
 .menubar {
-  background: #292929; }
+  background: #0F0202; }
 
 .menubarlinks {
   color: #B3B3B3;
@@ -36,7 +36,7 @@ body {
   color: #a8a8a8; }
 
 .title-gal h1:hover {
-  color: #56fdff; }
+  color: #714172; }
 
 /*--------------- Off-Canvas Navigation LEFT --- */
 #navWrapper {
@@ -47,16 +47,16 @@ body {
 
 .nav-title h2 {
   border-top: 1px solid #FFFFFF;
-  color: #56fdff; }
+  color: #D7B5E7; }
 
 .menu-list li a {
   box-shadow: inset 0 -1px rgba(0, 0, 0, 0.8);
   color: #B3B3B3;
-  background: #333333; }
+  background: #222222; }
 
 .menu-list li a:hover {
   background: rgba(0, 0, 0, 0.8);
-  color: #56fdff;
+  color: #714172;
   box-shadow: inset 0 -1px rgba(200, 200, 200, 0.8); }
 
 /* ----------------- Theme Toggler Menu RIGHT--*/
@@ -73,73 +73,73 @@ body {
 .tttitle h2 {
   background: #2D2D2D;
   border-top: 1px solid #FFFFFF;
-  color: #56fdff; }
+  color: #D7B5E7; }
 
 .ttmenu ul li a {
   box-shadow: inset 0 -1px rgba(0, 0, 0, 0.8);
   color: #B3B3B3;
-  background: #333333; }
+  background: #222222; }
 
 .ttmenu ul li a:hover {
   box-shadow: inset 0 -1px rgba(255, 255, 255, 0.8);
-  color: #56fdff;
+  color: #714172;
   background: rgba(0, 0, 0, 0.8); }
 
 /*------------------------ VIEW: Home View --- */
 .center {
   background: rgba(250, 250, 250, 0.2);
-  border-top: 1px solid #56fdff; }
+  border-top: 1px solid #714172; }
 
 .center h1 {
   font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  text-shadow: 2px 3px 4px #151515;
-  color: #EEEEEE; }
+  text-shadow: 2px 3px 4px #0F0202;
+  color: #D1CFDA; }
 
 .center h2 {
-  background: #151515;
-  font-family: "neuton", "courier", serif;
-  color: #56fdff; }
+  background: #0F0202;
+  font-family: "Oxygen", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #714172; }
 
 /*----------------- VIEW: Gallery overview ---*/
 #galleryOverviewContainer {
   font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif; }
 
 .gallery-title h1 {
-  font-family: "neuton", "courier", serif;
+  font-family: "Oxygen", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #C2C2C2;
-  border-bottom: 1px solid #56fdff; }
+  border-bottom: 1px solid #714172; }
 
 .theadalbum {
   color: #C2C2C2; }
 
 .listsinglealbum {
-  color: #00b2b2;
+  color: #D7B5E7;
   border-top: 1px solid #777777;
-  background: #333333;
+  background: #222222;
   border-bottom: 2px solid #454545; }
 
 .listsinglealbum:hover {
-  background: #151515;
-  border-bottom: 2px solid #DDDDFF;
-  color: #56fdff; }
+  background: #0F0202;
+  border-bottom: 2px solid #26041D;
+  color: #714172; }
 
-/*------------------  VIEW Gallery Detail: pix ---*/
+/*--------------- ---VIEW Gallery Detail: pix ---*/
 #galleryDetailContainer {
-  color: #56fdff; }
+  color: #714172; }
 
 .img-caption {
-  background: rgba(200, 200, 200, 0.4);
-  border-top: 1px solid #56fdff; }
+  background: rgba(200, 200, 200, 0.3);
+  border-top: 1px solid #714172; }
 
 .img-caption h2 {
-  font-family: "neuton", "courier", serif;
-  color: #151515; }
+  font-family: "Oxygen", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #0F0202; }
 
 .img-caption-detail {
   background: rgba(200, 200, 200, 0.8); }
 
 .img-caption-detail p {
-  color: #56fdff; }
+  color: #714172; }
 
 .gal-btn a {
   color: #B3B3B3;
@@ -147,90 +147,90 @@ body {
   border: 1px solid #2D2D2D; }
 
 .gal-btn a:hover {
-  color: #151515;
-  background: #EEEEEE;
+  color: #0F0202;
+  background: #D1CFDA;
   border: 1px solid #333333; }
 
 .swiper-button-prev {
-  font-family: "neuton", "courier", serif;
+  font-family: "Oxygen", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #777777;
   border: 1px solid #7e7e7e;
   background: none;
   transition: all 0.25s ease-out; }
   .swiper-button-prev span {
-    color: #00b2b2; }
+    color: #572D53; }
 
 .swiper-button-prev:hover {
   border: 1px solid #a8a8a8; }
   .swiper-button-prev:hover span {
-    color: #EEEEEE; }
+    color: #D1CFDA; }
 
 .swiper-button-next {
-  font-family: "neuton", "courier", serif;
+  font-family: "Oxygen", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #777777;
   border: 1px solid #7e7e7e;
   background: none;
   transition: all 0.25s ease-out; }
   .swiper-button-next span {
-    color: #00b2b2; }
+    color: #572D53; }
 
 .swiper-button-next:hover {
   border: 1px solid #a8a8a8; }
   .swiper-button-next:hover span {
-    color: #EEEEEE; }
+    color: #D1CFDA; }
 
 /*-------------------------- VIEW Uploader Form ---*/
 .uploaderTitle h2 {
-  font-family: "neuton", "courier", serif;
+  font-family: "Oxygen", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #C2C2C2;
-  border-bottom: 1px solid #56fdff; }
+  border-bottom: 1px solid #714172; }
 
 #uploadForm {
-  background: #333333;
-  color: #A2A2A2;
+  background: #222222;
+  color: #a8a8a8;
   border-top: 1px solid #2D2D2D; }
 
-.formstyle input, select {
-  background: #777777;
-  border: 1px solid #2D2D2D;
+.formstyle select {
+  color: #0F0202; }
+
+.formstyle input {
+  background: #292929;
+  border: 1px solid #7e7e7e;
   border-radius: 3px;
-  color: #444444; }
+  color: #a8a8a8; }
 
 .formstyle input:hover {
   background: #A3A3A3;
-  border: 1px solid #56fdff;
-  color: #151515; }
+  border: 1px solid #714172;
+  color: #0F0202; }
 
 .formstyle h3 {
-  color: #56fdff; }
+  color: #a8a8a8; }
 
-#uploadSubmit {
-  border: 1px solid #151515;
+#uploadSubmit, #toTheGaleriesBtn {
+  border: 1px solid #0F0202;
   background: #777777;
-  color: #151515; }
+  color: #0F0202; }
 
-#uploadSubmit:hover {
-  border: 1px solid #56fdff;
-  background: #151515;
-  color: #56fdff; }
+#uploadSubmit:hover, #toTheGaleriesBtn:hover {
+  border: 1px solid #714172;
+  background: #0F0202;
+  color: #714172; }
 
 #previewUploadImages h3 {
-  color: #56fdff; }
+  color: #714172; }
 
 #bubble {
   background: #2D2D2D;
-  color: #00b2b2;
+  color: #D1CFDA;
   border: 1px solid #a8a8a8; }
 
-#uploadThanks h2, h3 {
+#uploadThanks h2, h3, p {
   color: #C2C2C2; }
 
 #toTheGaleriesBtn {
-  color: #56fdff;
-  background: #151515; }
-
-#toTheGaleriesBtn {
-  color: #56fdff; }
+  color: #714172;
+  background: #0F0202; }
 
 /*------------------------ VIEW article view  ---*/
 .articlecontainer {
@@ -238,69 +238,74 @@ body {
 
 /*Big title*/
 .articleDefault h2 {
-  font-family: "neuton", "courier", serif;
+  font-family: "Oxygen", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #C2C2C2;
-  border-bottom: 1px solid #56fdff; }
+  border-bottom: 1px solid #714172; }
 
 .articleDefault h3 {
   color: #A2A2A2;
   border-top: 1px solid #A2A2A2; }
 
 .articleDefault h4 {
-  color: #56fdff; }
+  display: inline;
+  padding-top: 1.2rem;
+  font-weight: 400;
+  color: #714172;
+  background: #170212; }
 
 .articleDefault p {
+  font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #A2A2A2; }
 
-/*--------------------------- VIEW article two Cols  ---*/
 .articleRight h3 {
-  font-family: "neuton", "courier", serif;
-  color: #A2A2A2;
-  background: #151515; }
+  font-family: "Oxygen", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #572D53;
+  background: #0F0202; }
 
 .articleRight h4 {
-  color: #56fdff;
-  background: #292929; }
+  color: #292929;
+  background: rgba(200, 200, 200, 0.8); }
 
 .articleRight p {
-  color: #151515;
+  font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #444444;
   background: rgba(200, 200, 200, 0.8); }
 
 .articleLeft h3 {
-  font-family: "neuton", "courier", serif;
-  color: #A2A2A2;
-  background: #151515; }
+  font-family: "Oxygen", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #572D53;
+  background: #0F0202; }
 
 .articleLeft h4 {
-  color: #56fdff;
-  background: #292929; }
+  color: #292929;
+  background: rgba(200, 200, 200, 0.8); }
 
 .articleLeft p {
-  color: #151515;
-  background: rgba(60, 156, 180, 0.8); }
+  font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #444444;
+  background: rgba(200, 200, 200, 0.8); }
 
 .asidetext {
-  background: rgba(200, 200, 200, 0.4); }
+  background: rgba(200, 200, 200, 0.3); }
 
 .asidetext h2 {
-  background: #151515;
-  color: #56fdff; }
+  background: #0F0202;
+  color: #714172; }
 
 .asidetext h3 {
-  color: #00b2b2;
-  background: #151515; }
+  color: #D7B5E7;
+  background: #0F0202; }
 
 .asidetext p {
-  color: #DDDDFF;
-  font-weight: 400; }
+  color: #0F0202; }
 
 .imgcontent p {
-  background: #151515;
-  color: #56fdff; }
+  background: #a8a8a8;
+  color: #714172; }
 
 .teaserbox {
-  border: 1px solid #a8a8a8;
-  background: #292929; }
+  border: 1px solid #2D2D2D;
+  background: #0F0202; }
 
 .teaserbox h3 {
   color: #a8a8a8; }
@@ -316,17 +321,15 @@ body {
   border-bottom: 0 solid #2D2D2D; }
 
 .linkToGal a:hover {
-  color: #56fdff;
-  border-bottom: 1px solid #56fdff; }
+  color: #714172;
+  border-bottom: 1px solid #714172; }
 
 /*------------------------------ VIEW Footer ---*/
 #footer {
-  border-top: 2px solid #151515;
-  background: #292929;
-  color: #777777; }
-
-#footer {
-  color: #777777; }
+  font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  border-top: 2px solid #0F0202;
+  background: #0F0202;
+  color: #444444; }
 
 .adress {
   border-right: 1px solid #A2A2A2; }
@@ -336,17 +339,8 @@ body {
   border-bottom: 0 solid #444444; }
 
 #footer a:hover {
-  color: #56fdff;
-  border-bottom: 1px solid #56fdff; }
-
-.footerfeedback span {
-  transition: all 0.2s ease-in;
-  color: #777777; }
-
-.footerfeedback span:hover {
-  transition: all 0.3s ease-in;
-  color: #56fdff;
-  border-top: 1px solid #56fdff; }
+  color: #714172;
+  border-bottom: 1px solid #714172; }
 
 /* ------------------------------ Splash screen ---*/
 .splash-content h1 {
@@ -358,8 +352,8 @@ body {
   color: #FFFFFF; }
 
 .splash-content h3 {
-  color: #56fdff; }
+  color: #D7B5E7; }
 
 .splash-content p {
-  font-family: "neuton", "courier", serif;
+  font-family: "Oxygen", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #888; }

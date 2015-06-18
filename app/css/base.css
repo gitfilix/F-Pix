@@ -1,8 +1,17 @@
+@charset "UTF-8";
 @import url(../css/normalize.css);
+@import url(../css/grid_skeleton.css);
+/*---------------------------------------------*/
 * {
   box-sizing: border-box; }
 
-a {
+html, body {
+  height: 100%;
+  font-size: 100%;
+  line-height: normal;
+  overflow: hidden; }
+
+a:link, a:hover, a:visited, a:active {
   outline: 0; }
 
 .clear:before,
@@ -15,21 +24,39 @@ h1, h2, h3, h4, h5 {
   margin-top: 0;
   margin-bottom: 0; }
 
-html, body {
-  height: 100%;
-  font-size: 100%;
-  line-height: normal;
-  overflow: hidden; }
+ul {
+  padding-left: 0;
+  margin: 0 0 0 0; }
 
-/* Scrollbar tricks */
+li {
+  margin-bottom: 1rem; }
+
+button,
+.button {
+  margin-bottom: 1rem; }
+
+input,
+textarea,
+select,
+fieldset {
+  margin-bottom: 1.5rem; }
+
+/*����������������������� Scrollbar trisks ��� */
+/*---------------------------------------------*/
 ::-webkit-scrollbar {
   width: 12px; }
 
-::-webkit-scrollbar-track {
-  background: rgba(0, 0, 0, 0.1); }
+.bgfixed {
+  background-position: center bottom;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100%;
+  position: fixed;
+  overflow: hidden; }
 
-::-webkit-scrollbar-thumb {
-  background: rgba(0, 0, 0, 0.8); }
+.textscroll {
+  overflow-scrolling: touch;
+  padding-bottom: 4rem; }
 
 /* -------------- Main App Container Wrapper --*/
 /*---------------------------------------------*/
@@ -43,7 +70,7 @@ html, body {
 #ContainerMenuBar {
   position: absolute;
   top: 0;
-  height: 70px;
+  height: 50px;
   width: 100%;
   z-index: 50; }
 
@@ -61,23 +88,29 @@ html, body {
   top: 0;
   left: 0;
   right: 0;
-  height: 70px;
-  padding-top: 1.4em;
+  height: 50px;
   width: 100%;
   font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif; }
 
+.titlebar {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background: none;
+  -webkit-transition: background 0.6s ease-in;
+          transition: background 0.6s ease-in; }
+
 #BtnMenuToggler {
-  margin-left: 1em;
+  margin-left: 1rem;
   float: left; }
 
 #BtnThemeChange {
-  margin-right: 1em;
+  margin-right: 1rem;
   float: right; }
 
 .menubarlinks {
-  margin-right: 1em;
+  margin-right: 1rem;
   text-decoration: none;
-  padding: 6px 10px 6px 10px;
+  padding: 4px 7px 4px 7px;
   border-radius: 4px;
   -webkit-transition: background 0.6s ease-in;
           transition: background 0.6s ease-in; }
@@ -104,17 +137,17 @@ html, body {
 
 .title-gal h1 {
   letter-spacing: 2px;
-  line-height: 1.6rem;
-  font-weight: 300; }
+  line-height: 1.4rem;
+  font-weight: 100;
+  -webkit-transition: all 0.3s ease-in;
+          transition: all 0.3s ease-in; }
 
 /*--------------- Container Content Wrapper----*/
 /*---------------------------------------------*/
 #ContainerContent {
   position: relative;
-  padding-top: 70px;
   height: 100%;
   width: 100%;
-  padding-bottom: 70px;
   overflow-scrolling: touch;
   overflow: auto;
   -webkit-transform: translate3d(0, 0, 0);
@@ -128,14 +161,14 @@ html, body {
   width: 100%;
   height: 100%; }
 
-/*----------- Off-Canvas Navigation LEFT ----- */
+/*------------- Off-Canvas Navigation LEFT --- */
 /*---------------------------------------------*/
 /* toggler-class on NavWrapper*/
 /* container Navigation */
 #ContainerNav {
   position: absolute;
   width: 300px;
-  top: 70px;
+  top: 50px;
   left: 0;
   height: 100%;
   z-index: 50;
@@ -153,16 +186,16 @@ html, body {
   -webkit-transition: all 0.4s ease-out;
           transition: all 0.4s ease-out; }
 
-/* inner Wrapper*/
+/* inner Wrapper */
 #navContent {
   overflow-y: auto;
-  opacity: 0.6;
+  opacity: 0.1;
   -webkit-transform: scale(0.7) translate3d(0, 0, 0);
           transform: scale(0.7) translate3d(0, 0, 0);
-  -webkit-transition: -webkit-transform 0.35s ease-out;
-  transition: transform 0.35s ease-out; }
+  -webkit-transition: -webkit-transform 0.25s ease-out;
+  transition: transform 0.25s ease-out; }
 
-/*Nav logo & header*/
+/* Nav logo & header*/
 .nav-title {
   padding-left: 1.2rem;
   padding-top: 1rem; }
@@ -172,7 +205,11 @@ html, body {
   letter-spacing: 0.2rem;
   font-weight: 100;
   float: right;
-  padding-right: 2rem; }
+  padding-right: 0;
+  -webkit-transition-property: -webkit-transform;
+          transition-property: transform;
+  -webkit-transition: padding 0.25s ease-out;
+          transition: padding 0.25s ease-out; }
 
 .nav-title a {
   float: left; }
@@ -226,13 +263,13 @@ html, body {
   -webkit-transition: background 0.3s, box-shadow 0.3s;
   transition: background 0.3s, box-shadow 0.9s; }
 
-/* ----------------- Theme Toggler Menu RIGHT--*/
-/*---------------------------------------------*/
+/* ------------------- Theme Toggler Menu RIGHT--*/
+/* ---------------------------------------------*/
 #ContainerThemeToggler {
   visibility: hidden;
   z-index: 10;
   position: absolute;
-  top: 70px;
+  top: 51px;
   right: 0;
   height: 100%;
   width: 300px; }
@@ -246,6 +283,13 @@ html, body {
   -webkit-transition: all 0.5s ease-in;
           transition: all 0.5s ease-in; }
 
+.tttitle img {
+  width: 40px;
+  height: auto;
+  float: left;
+  padding: 3px;
+  margin-left: 2px; }
+
 .tttitle h2 {
   font-size: 1.6rem;
   text-transform: uppercase;
@@ -253,7 +297,11 @@ html, body {
   font-weight: 100;
   margin-top: 1rem;
   padding-bottom: 1em;
-  margin-left: 2rem; }
+  margin-left: 12rem;
+  -webkit-transition-property: -webkit-transform;
+          transition-property: transform;
+  -webkit-transition: margin 0.25s ease-out;
+          transition: margin 0.25s ease-out; }
 
 .ttmenu {
   font-size: 1.4rem; }
@@ -270,8 +318,8 @@ html, body {
   text-transform: uppercase;
   letter-spacing: 1px;
   font-weight: 400;
-  -webkit-transition: background 0.3s, box-shadow 0.3s;
-  transition: background 0.3s, box-shadow 0.9s; }
+  -webkit-transition: background 0.3s, box-shadow 0.9s;
+          transition: background 0.3s, box-shadow 0.9s; }
 
 /*------------------------ VIEW: Home View --- */
 /*---------------------------------------------*/
@@ -286,26 +334,32 @@ html, body {
 .center {
   position: absolute;
   width: 100%;
-  text-align: center; }
+  text-align: center;
+  -webkit-transition: all 0.5s ease-in;
+          transition: all 0.5s ease-in; }
 
 .center h1 {
   margin-top: 2rem;
   margin-bottom: 0.5em;
   line-height: 3rem;
-  font-weight: 200; }
+  font-weight: 100;
+  letter-spacing: 0.1rem; }
 
 .center h2 {
   text-align: right;
   padding: 1em;
   font-weight: 200;
-  letter-spacing: 2px; }
+  letter-spacing: 0.2px;
+  -webkit-transition: all 0.7s ease-out;
+          transition: all 0.7s ease-out; }
 
 /*---------- VIEW: Table Gallery overview ------*/
 /*---------------------------------------------*/
 #galleryOverviewContainer {
   width: 100%;
   padding-left: 0;
-  padding-right: 0; }
+  padding-right: 0;
+  margin-bottom: 4rem; }
 
 .gallery-title h1 {
   padding-bottom: 1.6rem;
@@ -321,31 +375,52 @@ html, body {
   font-weight: 100; }
 
 .theadalbum td {
-  padding-top: 1.2rem;
-  padding-bottom: 0.6rem; }
+  padding: 1.2rem 0 0.6rem 0.5rem; }
 
 .theadalbum td:nth-child(1) {
   padding-left: 1rem; }
 
 /*row class*/
 .listsinglealbum {
-  font-size: 1.3rem; }
+  -webkit-transition: all 0.33s ease-in;
+          transition: all 0.33s ease-in; }
+
+.listsinglealbum:hover {
+  -webkit-transition: all 0.3s ease;
+          transition: all 0.3s ease; }
 
 .listsinglealbum td {
-  padding: 10px 0 10px 10px; }
+  padding: 0.5rem 0 0.5rem 0.5rem; }
 
 .listsinglealbum td:first-child {
   max-width: 100px; }
 
 .listsinglealbum td:last-child {
-  padding-right: 10px; }
+  padding-right: 0.5rem; }
+
+.imgfader {
+  overflow: hidden; }
 
 .listsinglealbum img {
-  max-width: 90px;
-  height: auto; }
+  max-width: 120px;
+  height: auto;
+  -webkit-transform: scale(1, 1);
+      -ms-transform: scale(1, 1);
+          transform: scale(1, 1);
+  -webkit-transition: all 0.65s ease-in;
+          transition: all 0.65s ease-in; }
 
-/*---------------VIEW Gallery Detail: pix------*/
-/*---------------------------------------------*/
+.listsinglealbum img:hover {
+  max-width: 120px;
+  height: auto;
+  -webkit-transform: scale(1.3, 1.3);
+      -ms-transform: scale(1.3, 1.3);
+          transform: scale(1.3, 1.3);
+  -webkit-transition: all 0.25s ease-in;
+          transition: all 0.25s ease-in; }
+
+/*---------------  VIEW Gallery Detail: pix  ------*/
+/*------------------------------------------------*/
 #galleryDetailContainer {
   height: 100%;
   overflow: hidden;
@@ -363,6 +438,26 @@ html, body {
   position: relative; }
 
 /*info view default not visible*/
+.swiper-button-prev {
+  margin-left: 8px;
+  border-radius: 3px;
+  font-size: 1.3rem;
+  font-weight: 200;
+  letter-spacing: 0.1rem;
+  width: 4rem;
+  cursor: pointer;
+  display: inline; }
+
+.swiper-button-next {
+  margin-right: 8px;
+  border-radius: 3px;
+  font-size: 1.3rem;
+  font-weight: 200;
+  letter-spacing: 0.1rem;
+  width: 4rem;
+  cursor: pointer;
+  display: inline; }
+
 .img-caption {
   visibility: hidden;
   position: absolute;
@@ -389,41 +484,40 @@ html, body {
 
 .close {
   position: absolute;
-  min-width: 70px;
-  top: 30px;
+  width: 40px;
+  top: 15px;
   right: 10px; }
 
 .info {
   position: absolute;
-  min-width: 70px;
-  top: 30px;
-  left: 10px; }
+  width: 40px;
+  top: 15px;
+  left: 17px; }
 
 .gal-btn a {
   cursor: pointer;
   text-decoration: none;
   padding: 6px 10px 6px 10px;
   border-radius: 4px;
-  -webkit-transition: background 0.6s ease-in;
-          transition: background 0.6s ease-in; }
+  -webkit-transition: all 0.6s ease-in;
+          transition: all 0.6s ease-in; }
 
 .gal-btn a:hover {
-  -webkit-transition: background 0.3s ease-in;
-          transition: background 0.3s ease-in; }
+  -webkit-transition: all 0.3s ease-in;
+          transition: all 0.3s ease-in; }
 
 /*---------------VIEW Uploader Form -----------*/
 /*---------------------------------------------*/
-.uploaderTitle h1 {
+.uploaderTitle h2 {
   padding-bottom: 1.6rem;
   text-align: right;
-  padding-right: 1rem;
-  font-size: 2.8rem;
-  font-weight: 200;
-  letter-spacing: 0.1rem; }
+  padding-right: 1rem; }
 
 .formstyle {
   text-align: left;
-  padding-left: 3em; }
+  padding-left: 3em;
+  /*make sure upload button is visible */
+  padding-bottom: 5rem; }
 
 .formstyle input, select {
   border-radius: 3px;
@@ -440,9 +534,16 @@ html, body {
   line-height: 1.2rem;
   padding-top: 1.3rem;
   padding-bottom: 1.3rem;
-  letter-spacing: 0.1rem; }
+  letter-spacing: 0.1rem;
+  font-weight: 200; }
+
+#previewUploadImages h3 {
+  font-size: 1.6rem;
+  line-height: 1.2rem;
+  padding-top: 1.3rem; }
 
 #uploadSubmit {
+  padding: 0.5rem;
   -webkit-transition: all 0.2s ease-out;
           transition: all 0.2s ease-out; }
 
@@ -460,25 +561,38 @@ html, body {
 #previewUploadImages img {
   width: 100%; }
 
-#previewUploadImages h3 {
-  font-size: 1.2rem;
-  line-height: 1.2rem;
-  padding-top: 1.3rem; }
-
 #uploadThanks {
   display: none;
   position: absolute;
   height: 100%;
   z-index: 101;
-  top: 70px;
-  bottom: 70px;
+  top: 0;
   left: 0;
   right: 0; }
 
 #uploadThanks h2 {
-  font-size: 1em;
+  font-size: 2.8em;
   font-weight: 200;
   padding-left: 1rem; }
+
+#uploadThanks h3, #uploadThanks p {
+  font-size: 1.8em;
+  padding-right: 1rem;
+  text-align: right; }
+
+#toTheGaleriesBtn {
+  margin-left: 2rem;
+  font-size: 1.4rem;
+  padding: 0.7rem; }
+
+#bubble {
+  font-size: 1.8rem;
+  font-weight: 200;
+  padding: 3rem;
+  z-index: 200;
+  max-width: 290px;
+  display: none;
+  border-radius: 3px; }
 
 /*------------------- VIEW article view  -----*/
 /*--------------------------------------------*/
@@ -488,26 +602,23 @@ html, body {
   overflow-y: scroll;
   overflow-scrolling: touch; }
 
+.articleDefault {
+  margin-bottom: 4rem; }
+
 /* article Default View - Big title*/
 .articleDefault h2 {
-  padding-bottom: 1.6rem;
   text-align: right;
+  padding-right: 1rem;
   font-weight: 200;
   letter-spacing: 0.1rem; }
 
 /*small follower title*/
 .articleDefault h3 {
   display: block;
-  font-size: 1.8rem;
-  text-align: right;
   padding-right: 1rem;
-  padding-bottom: 1.5rem;
-  letter-spacing: 0.1rem;
-  font-weight: 300; }
+  letter-spacing: 0.1rem; }
 
 .articleDefault h4 {
-  font-size: 1.2rem;
-  line-height: 1.8rem;
   letter-spacing: 0.1rem;
   padding-bottom: 0.2rem;
   padding-top: 1.6rem;
@@ -518,50 +629,59 @@ html, body {
   padding: 1rem 1rem 3rem 1rem;
   font-weight: 300; }
 
-/* ----Template:  Background in 2 Columns */
+/* ----------Template:  TextTwoCols */
 .articleRight h3 {
+  margin-top: 2rem;
   padding: 1rem 1rem 2rem 1rem;
+  line-height: 1.8rem;
+  letter-spacing: 0.1rem;
   font-weight: 100; }
 
 .articleRight h4 {
-  font-size: 1.4rem;
+  padding: 1.6rem 1rem 0.2rem 1rem;
   line-height: 1.8rem;
   letter-spacing: 0.1rem;
-  padding: 1.6rem 0 0.2rem 1rem;
   font-weight: 300;
   text-align: right; }
 
 .articleRight p {
   padding: 1rem 1rem 3rem 1rem;
-  font-size: 1rem;
-  line-height: 1.8rem;
   font-weight: 300; }
 
 .articleLeft h3 {
+  margin-top: 2rem;
   padding: 1rem 1rem 2rem 1rem;
-  font-weight: 300; }
-
-.articleLeft h4 {
-  font-size: 1.4rem;
   line-height: 1.8rem;
   letter-spacing: 0.1rem;
-  padding: 1.6rem 0 0.2rem 0;
+  font-weight: 100; }
+
+.articleLeft h4 {
+  line-height: 1.8rem;
+  letter-spacing: 0.1rem;
+  padding: 1.6rem 0 0.2rem 1rem;
   font-weight: 300; }
 
 .articleLeft p {
-  padding: 2rem 1rem 2rem 1rem;
-  background: rgba(200, 200, 200, 0.8);
+  padding: 1rem 1rem 3rem 1rem;
   font-weight: 300; }
 
 /* ------ Template BG-Prominent*/
 .asidetext h2 {
-  font-size: 1.6rem;
   padding: 1rem 1rem 1rem 1rem; }
 
+.asidetext h3 {
+  padding: 0.5rem 0 0.5rem 1rem; }
+
 .asidetext p {
-  font-size: 1rem;
-  line-height: 1.6rem;
   padding: 2rem 1rem 1rem 1rem; }
+
+.imgcontent {
+  margin-bottom: 7rem; }
+
+.imgcontent img {
+  padding-left: 1rem;
+  max-width: 100%;
+  height: auto; }
 
 /* ----------------- teasers on the right side ----------*/
 .teaserbox {
@@ -588,29 +708,27 @@ html, body {
   -webkit-transform: scale(1, 1);
       -ms-transform: scale(1, 1);
           transform: scale(1, 1);
-  -webkit-transition: all 0.3s ease-out;
-          transition: all 0.3s ease-out; }
+  -webkit-transition: all 0.25s ease-out;
+          transition: all 0.25s ease-out; }
 
 .teaserbox img:hover {
   width: 220px;
   height: auto;
-  -webkit-transform: scale(1.3, 1.3);
-      -ms-transform: scale(1.3, 1.3);
-          transform: scale(1.3, 1.3);
+  -webkit-transform: scale(1.4, 1.4);
+      -ms-transform: scale(1.4, 1.4);
+          transform: scale(1.4, 1.4);
   overflow: hidden;
-  -webkit-transition: all 0.3s ease-out;
-          transition: all 0.3s ease-out; }
+  -webkit-transition: all 0.5s ease-out;
+          transition: all 0.5s ease-out; }
 
 .caption {
   position: absolute;
   height: 60px;
-  bottom: 15px;
+  bottom: 75px;
   width: 210px;
   left: 15px; }
 
 .caption p {
-  font-size: 1rem;
-  font-family: serif;
   padding-left: 10px;
   padding-bottom: 10px;
   padding-top: 5px; }
@@ -629,30 +747,43 @@ html, body {
   letter-spacing: 1px;
   padding-bottom: 5px; }
 
-/*---------------VIEW Footer------*/
-/*--------------------------------*/
+/*--------------------------------- VIEW Footer ---*/
+/*------------------------------------------------*/
 #ContainerFooter {
   position: fixed;
-  height: 70px;
   bottom: 0;
-  width: 100%; }
+  width: 100%;
+  z-index: 99; }
 
 #footer {
   width: 100%;
-  padding-top: 0.7rem;
+  padding-top: 0.5rem;
   padding-bottom: 0.5rem;
   text-align: left;
   font-size: 0.8rem; }
 
 #footer img {
-  margin-left: 2em;
+  margin-left: 1rem;
   text-align: right;
-  max-width: 30px;
+  padding-top: 5px;
+  max-width: 50px;
   height: auto; }
+
+.remark {
+  text-align: left;
+  padding-left: 1rem;
+  border-left: 1px solid #444444; }
 
 .adress {
   text-align: right;
-  padding-right: 1em; }
+  padding-right: 1rem;
+  line-height: 0.8rem; }
+
+.footerfeedback {
+  display: none;
+  float: right;
+  -webkit-transition: all 0.5s ease-out;
+          transition: all 0.5s ease-out; }
 
 #footer a {
   text-decoration: none;
@@ -667,8 +798,20 @@ html, body {
 
 /* Splash screen headers  -------------------------*/
 /*------------------------------------------------*/
+#splash {
+  position: absolute;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 202;
+  background: #252525; }
+
 /* Content of splash  */
 #splash-container {
+  z-index: 200;
   position: relative;
   height: 100%; }
 
@@ -704,3 +847,17 @@ html, body {
   font-size: 1rem;
   line-height: 1.3rem;
   text-align: right; }
+
+#featureList {
+  position: absolute;
+  bottom: 0;
+  background: #111111; }
+
+#showTests li {
+  color: #AEE;
+  border-top: 1px solid #999;
+  display: block;
+  padding: 0.5rem;
+  margin: 0;
+  font-size: 0.7rem;
+  background: #111111; }

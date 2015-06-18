@@ -1,0 +1,127 @@
+{
+  "seiten":[
+    {
+      "pageTitel": "Felix Photo Gallery",
+      "titelNav": "Home",
+      "text": "a visual Compendium",
+      "template": "home",
+      "backgroundImage": "pix/bgstart_city1.jpg",
+      "app": "home"
+    },
+    {
+      "pageTitel": "ich bin die erste Inhalts-Seite",
+      "titelNav": "About this App",
+      "text": "kein text",
+      "template": "TextTwoCol",
+      "backgroundImage": "pix/bgglobe4.jpg",
+      "app": "",
+      "content": [
+        {
+          "title1":"Über diese App",
+          "lead1": "Lernen ist Arbeit",
+          "text1": "Diese Web-App habe ich primär programmiert, um meine Front-End Webdevelopper Skills zu konsolidieren und zu verbessern. Das Produkt soll eine Demonstration für einen potentiellen Arbeitsgeber sein, sowie auch Freude bereiten.<br />Der Source-Code ist offen und detailiert kommentiert. <br />Wenn man neue Technologien lernen, ausprobieren oder einsetzen möchte, gibt es viele Möglichkeiten: Blogs lesen, Tutorials nachbauen, Übungen nachvollziehen und ausprobieren, darüber reden, selber bloggen und tweeten. <br /> Oder: Man kreiert ein konkretes ein Projekt von der Konzeption, Template-Design, Programmierung bis zum  fertigen (präsentablen) Produkt selbst. Mit Inhalten, Funktion und Usability. Lernen ist also nicht nur einfach Spass, sondern richtige Arbeit. <br />Denn die <strong>'Hello World'</strong>-Examples funktionieren zwar immer -doch <strong>Wow-Faktor</strong> geht anders.",
+          "title2": "Nebeneffekte",
+          "lead2": "aber es kann Freude bereiten",
+          "text2": "Der angenehme Nebeneffekt entsteht, wenn man eine funktionstüchtige Applikation baut die nicht nur funtioniert, sondern zusätzlich einen Zweck erfüllt.<br />Erstens kann ich meine Photos in Galerien zusammenfassen und diese auf meine Art präsentieren (Ohne die Rechte an social-Media Platformen zu verlieren).<br /> Zweitens ich kann den Menschen, die ich auf meinen Reisen getroffen habe, ein kleines visuelles Feedback geben. Erinnerungen können geteilt werden, denn sie können partizipieren; auch Sie können Ihre Photos (mit-)teilen. </br> Dass Freunde und Leute die wir kennengelernt haben, auch ihre Photos sehen und teilen können, bereitet Freude.  <br /> <br />Typing JavaScript & Freude teilen =  ;-)"
+        }
+      ]
+    },
+    {
+      "pageTitel": "ich bin eine Inhalts-Seite 2",
+      "titelNav": "default Template",
+      "text": "Mein Name ist Hase und ich fahre gerne nach Indien?",
+      "template": "default",
+      "backgroundImage": "pix/kenna-7.jpg",
+      "app": "",
+      "content": [
+        {
+          "title1":"Big Title Mirza",
+          "lead1": "lead 1 um was geht es - um mirza",
+          "text1": "text1: keine ahnung um was es geht in diesem text- aber er wird angezeigt.Er hörte leise Schritte hinter sich. Das bedeutete nichts Gutes. Wer würde ihm schon folgen, spät in der Nacht und dazu noch in dieser engen Gasse mitten im übel beleumundeten Hafenviertel? Gerade jetzt, wo er das Ding seines Lebens gedreht hatte und mit der Beute verschwinden wollte! Hatte einer seiner zahllosen Kollegen dieselbe Idee gehabt, ihn beobachtet und abgewartet, um ihn nun um die Früchte seiner Arbeit zu erleichtern? ",
+          "title2": "second title mirza",
+          "lead2": "and this is the second lead- still no answer but no worry text is comming",
+          "text2": "Mein Name ist Mirza und ich fahre gerne nach Indien. <br /> Er hörte leise Schritte hinter sich. Das bedeutete nichts Gutes. Wer würde ihm schon folgen, spät in der Nacht und dazu noch in dieser engen Gasse mitten im übel beleumundeten Hafenviertel? Gerade jetzt, wo er das Ding seines Lebens gedreht hatte und mit der Beute verschwinden wollte! Hatte einer seiner zahllosen Kollegen dieselbe Idee gehabt, ihn beobachtet und abgewartet, um ihn nun um die Früchte seiner Arbeit zu erleichtern?"
+        }
+      ]
+    },
+    {
+      "pageTitel": "Gallerie-Applikation",
+      "titelNav": "Gallery",
+      "text": "",
+      "template": "galleryApp",
+      "backgroundImage": "pix/kenna-5.jpg",
+      "app": "galleryOverviewApp"
+    },
+    {
+      "pageTitel": "Single Page Application",
+      "titelNav": "Single Page Application",
+      "text": "Diese Web-Application ist ein Single-Page Application.  Das bedeutet, es existiert nur ein HTML-File, beim Seitenaufruf einmalig geladen wird. <br />Der Inhalt wird clientseitig gerendert und in die einzelnen View's (Sichten) dynamisch eingefügt. Bei Bedarf werden vom Server weitere Inhalte dynamisch per AJAX (Asynchronous JavaScript and XML) nachgeladen, ohne weiteren Seitenaufruf (Page-Request) auszuführen.<br />",
+      "template": "default",
+      "backgroundImage": "",
+      "app": "",
+      "content": [
+        {
+          "title1":"Reduced to the Max",
+          "lead1": "Schlank ist elegant",
+          "text1": "Diese Technik erlaubt ein extrem schlankes DOM (Document Object Model). Die ganze Applikation besteht initial nur aus 5 (leeren) Div-Elementen und einem Wrapper-Element. Diese Elemente werden bei der Initialisierung nachgeladen und dynamisch gerendert. Bei Bedarf werden vom Server per AJAX (Asynchronous JavaScript) weitere Inhalte dynamisch nachgeladen, ohne einen weiterenSeitenaufruf (Page-Request) auszuführen.",
+          "title2": "Model-View Architektur",
+          "lead2": "Modulare Trennung von Daten, Darstellung und Logik",
+          "text2": "Es wurde darauf geachtet, Daten (Model), View (Darstellung) und die Applikations-Logik voneinander zu trennen, um modulare Architektur zu gewährleisten. Eine (richtige) MVC-Architektur (mit Controller) kommt in der nächsten App zum Einsatz. Mit Angular-js und noch objektorientierter...- Versprochen!",
+          "title3": "Eingesetzte Techniken",
+          "lead3": "Tech Stack & Buzzwords ",
+          "text3": "Um diese App zu realisieren, habe ich folgende Techniken eingesetzt: HTML-5 (100% W3C-valid), CSS-3 (mit SASS Prepocessor), JavaScript native, JQuery, animated SVG (Scalable Vector Graphics), Skeleton (lightweight Grid-System), iDangerous Swiper-js, Template7, Modernizr, JSON-Format, AJAX, GULP-Taskmanager, NPM Modules by Node-js.<br /><br />Die Views wurden mit einem Responsive Grid System realisiert; 6 Media-Queries mit SASS-Mixins: von Mobile-First, Tablet-touchoptimized, bis Full-HD-Screen. Content (Teaser-Boxen) und Schrift und Navigation verhalten sich Device-gerecht.",
+          "title4": "Framework",
+          "lead4": "Work without FrameWork?",
+          "text4": "Es wurde absichtlich auf den Einsatz der bekannten Frameworks wie Bootstrap, Foundation oder Ionic verzichtet. Ich bin nicht Anti- Frameworks, sie sind sehr gut programmiert und praktisch, erhöhen die Effizient, da viele Funktionen 'Out of the Box' funktionieren.<br />Doch der Lerneffekt ist meines Erachtens viel höher, wenn jede Funktion, und das Template selbst geschrieben wird. <br />Creation over Adaption!",
+          "title5": "API",
+          "lead5": "Frontend-Lappi, wo ist die API?",
+          "text5": "Frontend-ler sind keine Backend-ler. Dennoch sollten sie über grundlegendes SQL und Datenbankknow-How verfügen. Auch diese Front-End App verfügt über einen Server, welcher die Daten aus einer Datenbank liest und speichert. Der JAVA- Application Server ColdFusion erlaubt SQL-Abfragen und das serialisieren des Return-Recordsets in JSON-Format.<br />Somit besteht die API aus einem File auf meinem CF-Hosting, welches DB-Queries ausführt und JSON Dateien sendet beziehungsweise für den Fileupload empfängt.<br />Diese werden mit HTTP-GET-Request Methode ausgeführt. (Und mit Hilfe meines Freund MRZ (CF-Guru) wurde es möglich, serverseitig binäre Base64-Dateien in reguläre Jpg's umzuwandeln und vice-versa in 4 Zeilen Code. An dieser Stelle nochmals herzlichen Dank!).<br />So konnte eine einfache, aber richtige JSON- API realisiert werden.<br />"
+        }
+      ]
+    },
+    {
+      "pageTitel": "Upload",
+      "titelNav": "Upload",
+      "text": "",
+      "template": "uploaderApp",
+      "backgroundImage": "",
+      "app": "upload"
+    },
+    {
+      "pageTitel": "Hello Friends & Users",
+      "titelNav": "About this Gallery",
+      "text": "About this App",
+      "template": "BgProminent",
+      "backgroundImage": "pix/bgglobe2.jpg",
+      "app": "",
+      "content": [
+        {
+          "title1":"About this Gallery",
+          "lead1": "Enjoy the beauty of this world",
+          "text1": "on every Device. on every Screen. Wherever you are. One Web-App for all. (okay, I admit, it works fine on <i>most</i> devices).",
+          "title2": "To my Friends",
+          "lead2": "&laquo; Shoot for the Moon...&raquo;",
+          "text2": "&laquo; - Even if you miss, you'll land among the stars.&raquo; <br />Enjoy the beauty of this world. And share it! I took so many Pictures and I hardly never publish them online. Why? I do like the idea of sharing pictures, but I also want to keep control over canvas of my choice, the aspect-ratio and even the frame is important to me. There are a lots of Galery-Plug-ins but out there, but none did fit my needs..  I have to admit, I am picky... But it is about Beauty of the Picture, so it is quite a serious topic to me. So I decided to programm my own gallery, where I have Full Picture control and the ability to share. And you, my friend, can share it too. Try out, if you like. "
+        }
+      ]
+    },{
+      "pageTitel": "Apple App",
+      "titelNav": "Apple Fullscreen",
+      "text": "Apple App",
+      "template": "templateImg",
+      "backgroundImage": "pix/bgglobe3.jpg",
+      "app": "",
+      "content": [
+        {
+          "title1":"Fullscreen auf Apple",
+          "lead1": "Add to Home Screen",
+          "text1": "How-To für Apple-User: Auch auf Apple-Geräten können Sie die F-Pix Gallery in einem Fullscreen -Modus geniessen.<br /> Clicken Sie auf das 'Share-' Symbol, und danach auf die Schaltfläche 'Add to HomeScreen'. <br /> Es erscheint ein Icon auf Ihrem Desktop. Fertig.",
+          "img1": "pix/aths1.png",
+          "imgcaption1": "1. Click share- Icon",
+          "img2": "pix/aths2.png",
+          "imgcaption2": "2. Add to HomeScreen. Thats's it. Enjoy FullScreen."
+        }
+      ]
+    }
+  ]
+}
